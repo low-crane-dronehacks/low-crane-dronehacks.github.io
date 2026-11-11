@@ -1,0 +1,112 @@
+---
+import "../styles/site.css";
+
+const team = [
+  {
+    name: "Rohan Inamdar",
+    bio: "I’ve been working on robotics for more than 5 years, focusing on drones and rockets. I self-taught myself aerospace engineering and went on to write first-ever flight code for hypersonic missiles at Anduril. On top of that, I’ve been working on research for high-speed autonomous drones that go more than 10 m/s, deploying optimal controllers, CV models, and working on RL for drones.",
+    links: [
+      { label: "LinkedIn", href: "https://www.linkedin.com/in/rohanninamdar/" },
+    ],
+  },
+  {
+    name: "Colin Balfour",
+    bio: "I built simulation tooling for robot learning at NVIDIA (Isaac Sim), and I research reinforcement learning for high-speed drone navigation at WPI's PeAR Lab — where my work on ultrasound-based navigation in visually degraded environments was published in Science Robotics. I've built palm-sized drones that fly autonomously in complete darkness, smoke, and snow, optimized vision models on embedded TPUs and GPUs, and written custom CUDA kernels for real-time depth rendering.",
+    links: [
+      { label: "Website", href: "https://colinbalfour.github.io/" },
+      {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/in/colin-d-balfour/",
+      },
+    ],
+  },
+  {
+    name: "Rohan Walia",
+    bio: "I am a Ph.D. student in the Robotics Engineering department at Worcester Polytechnic Institute, working at Automata Lab. My research focuses on safe control for learning-enabled AI systems in collaboration with NASA, and deadlock avoidance for multi-goal navigation in partnership with Amazon Robotics for warehouse applications. Prior to my Ph.D., I worked as a Robotics Software Engineer at MathWorks (2022-2023), where I benchmarked motion planning algorithms and integrated deep learning networks for surface reconstruction.",
+    links: [
+      { label: "Website", href: "https://waliarohan.github.io/index.html" },
+    ],
+  },
+  {
+    name: "Evan Kaba",
+    bio: "I am a senior undergraduate student at Worcester Polytechnic Institute studying Robotics Engineering, with a minor in Electrical and Computer Engienering. Currently I work in the Aerial-robot Control and Perception Lab under Professor Guanrui Li as a researcher on high speed drones. My research interests lie in sensor fusion, optimal control, and safe autonomy for unmanned aerial vehicles.",
+    links: [
+      { label: "Website", href: "https://www.evankaba.com/" },
+      { label: "LinkedIn", href: "https://www.linkedin.com/in/evan-kaba/" },
+    ],
+  },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fdfdfd" />
+    <title>The Team | Low Crane Tech Report</title>
+    <script is:inline>
+      const savedTheme = localStorage.getItem("theme");
+      document.documentElement.dataset.theme =
+        savedTheme ??
+        (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="wordmark" href="/">Low Crane Tech Report</a>
+      <nav aria-label="Main navigation">
+        <a href="/team/" aria-current="page">The Team</a>
+      </nav>
+      <button
+        class="theme-toggle"
+        type="button"
+        aria-label="Toggle color theme"
+        title="Toggle color theme"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z"></path></svg
+        >
+      </button>
+    </header>
+    <main class="team-main">
+      <section class="team-intro"><h1 class="team-title">The Team</h1></section>
+      <div class="team-grid">
+        {
+          team.map(person => (
+            <article class="team-card">
+              <h2>{person.name}</h2>
+              <p>{person.bio}</p>
+              <div class="team-links">
+                {person.links.map(link => (
+                  <a href={link.href} target="_blank" rel="noopener noreferrer">
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </main>
+    <script>
+      document
+        .querySelector<HTMLButtonElement>(".theme-toggle")
+        ?.addEventListener("click", () => {
+          const next =
+            document.documentElement.dataset.theme === "dark"
+              ? "light"
+              : "dark";
+          document.documentElement.dataset.theme = next;
+          localStorage.setItem("theme", next);
+        });
+    </script>
+  </body>
+</html>
