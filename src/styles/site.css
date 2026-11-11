@@ -186,10 +186,9 @@ h2 {
   min-width: 0;
 }
 .dual-photo img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border: 0;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center 35%;
 }
 @media (max-width: 760px) {
   .dual-layout {
@@ -292,6 +291,15 @@ video {
 .team-intro {
   padding: 78px 0 52px;
   border-bottom: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 36px;
+  align-items: center;
+}
+.team-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 .team-title {
   max-width: none;
@@ -339,6 +347,7 @@ video {
   }
   .team-intro {
     padding: 56px 0 42px;
+    grid-template-columns: 1fr;
   }
   .team-card {
     min-height: 0;
