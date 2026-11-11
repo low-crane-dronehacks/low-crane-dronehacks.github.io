@@ -116,6 +116,16 @@ h2 {
   border-bottom: 1px solid var(--border);
   scroll-margin-top: 24px;
 }
+.approach-copy {
+  max-width: 68ch;
+  min-height: 7rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 5px;
+  white-space: pre-wrap;
+  line-height: 1.75;
+}
 .media-frame,
 video {
   display: block;
