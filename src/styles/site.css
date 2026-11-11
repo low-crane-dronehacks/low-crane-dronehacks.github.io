@@ -176,6 +176,26 @@ h2 {
 #dual-approach {
   min-height: 260px;
 }
+.dual-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+  gap: clamp(24px, 4vw, 56px);
+  align-items: center;
+}
+.dual-copy {
+  min-width: 0;
+}
+.dual-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 0;
+}
+@media (max-width: 760px) {
+  .dual-layout {
+    grid-template-columns: 1fr;
+  }
+}
 .media-frame,
 video {
   display: block;
