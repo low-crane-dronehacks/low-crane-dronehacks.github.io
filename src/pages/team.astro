@@ -1,0 +1,112 @@
+---
+import "../styles/site.css";
+
+const team = [
+  {
+    name: "Rohan Inamdar",
+    bio: "Rohan studies robotics and computer science at Worcester Polytechnic Institute. His work spans drone controls, navigation, and embedded robotics.",
+    links: [
+      { label: "LinkedIn", href: "https://www.linkedin.com/in/rohanninamdar/" },
+    ],
+  },
+  {
+    name: "Colin Balfour",
+    bio: "Colin is a robotics engineer and researcher focused on perception and autonomous flight. His work includes reinforcement learning for high-speed drones and simulation tooling for robot learning.",
+    links: [
+      { label: "Website", href: "https://colinbalfour.github.io/" },
+      {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/in/colin-d-balfour/",
+      },
+    ],
+  },
+  {
+    name: "Rohan Walia",
+    bio: "Rohan is a robotics PhD student at Worcester Polytechnic Institute. He researches safe control for learning-enabled systems and multi-goal robot navigation.",
+    links: [
+      { label: "Website", href: "https://waliarohan.github.io/index.html" },
+    ],
+  },
+  {
+    name: "Evan Kaba",
+    bio: "Evan studies robotics engineering at Worcester Polytechnic Institute. His research in aerial robotics centers on sensor fusion, optimal control, and safe autonomy.",
+    links: [
+      { label: "Website", href: "https://www.evankaba.com/" },
+      { label: "LinkedIn", href: "https://www.linkedin.com/in/evan-kaba/" },
+    ],
+  },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fdfdfd" />
+    <title>The Team | Low Crane Tech Report</title>
+    <script is:inline>
+      const savedTheme = localStorage.getItem("theme");
+      document.documentElement.dataset.theme =
+        savedTheme ??
+        (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="wordmark" href="/">Low Crane Tech Report</a>
+      <nav aria-label="Main navigation">
+        <a href="/team/" aria-current="page">The Team</a>
+      </nav>
+      <button
+        class="theme-toggle"
+        type="button"
+        aria-label="Toggle color theme"
+        title="Toggle color theme"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z"></path></svg
+        >
+      </button>
+    </header>
+    <main class="team-main">
+      <section class="team-intro"><h1 class="team-title">The Team</h1></section>
+      <div class="team-grid">
+        {
+          team.map(person => (
+            <article class="team-card">
+              <h2>{person.name}</h2>
+              <p>{person.bio}</p>
+              <div class="team-links">
+                {person.links.map(link => (
+                  <a href={link.href} target="_blank" rel="noopener noreferrer">
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </main>
+    <script>
+      document
+        .querySelector<HTMLButtonElement>(".theme-toggle")
+        ?.addEventListener("click", () => {
+          const next =
+            document.documentElement.dataset.theme === "dark"
+              ? "light"
+              : "dark";
+          document.documentElement.dataset.theme = next;
+          localStorage.setItem("theme", next);
+        });
+    </script>
+  </body>
+</html>
