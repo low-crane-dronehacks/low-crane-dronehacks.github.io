@@ -116,15 +116,65 @@ h2 {
   border-bottom: 1px solid var(--border);
   scroll-margin-top: 24px;
 }
-.approach-copy {
-  max-width: 68ch;
-  min-height: 7rem;
-  padding: 1.25rem 1.5rem;
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--accent);
-  border-radius: 5px;
-  white-space: pre-wrap;
+.report-section p,
+.report-section ul,
+.report-section ol,
+.report-section blockquote,
+.report-section pre,
+.report-section table {
+  margin: 0 0 1.25rem;
   line-height: 1.75;
+}
+.report-section h3,
+.report-section h4,
+.report-section h5,
+.report-section h6 {
+  margin: 1.75rem 0 0.75rem;
+  line-height: 1.25;
+}
+.report-section a {
+  color: var(--accent);
+  text-underline-offset: 3px;
+}
+.report-section li + li {
+  margin-top: 0.35rem;
+}
+.report-section blockquote {
+  margin-left: 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--accent);
+}
+.report-section pre {
+  overflow-x: auto;
+  padding: 1rem;
+  border-radius: 5px;
+  background: var(--muted);
+}
+.report-section code:not(pre code) {
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+  background: var(--muted);
+}
+.report-section img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.report-section table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
+.report-section th,
+.report-section td {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border);
+}
+#dual-approach {
+  min-height: 260px;
 }
 .media-frame,
 video {
