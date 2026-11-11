@@ -1,138 +1,425 @@
 ---
-import { getCollection } from "astro:content";
-import { getRelativeLocaleUrl } from "astro:i18n";
-import IconRss from "@/assets/icons/IconRss.svg";
-import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
-import Layout from "@/layouts/Layout.astro";
-import Header from "@/components/Header.astro";
-import Footer from "@/components/Footer.astro";
-import Socials from "@/components/Socials.astro";
-import Card from "@/components/Card.astro";
-import LinkButton from "@/components/LinkButton.astro";
-import { getSortedPosts } from "@/utils/getSortedPosts";
-import { useTranslations } from "@/i18n";
-import config from "@/config";
-
-const { socials, posts: postsConfig } = config;
-
-const locale = Astro.currentLocale ?? config.site.lang;
-const t = useTranslations(locale);
-
-const posts = await getCollection("posts");
-const sortedPosts = getSortedPosts(posts);
-const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
-const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
-const homePath = getRelativeLocaleUrl(locale, "");
+const sections = [
+  { id: "dual-approach", title: "Our Dual Approach" },
+  { id: "rl-approach", title: "RL Approach" },
+  { id: "classical-approach", title: "Classical Approach" },
+  { id: "deployment-results", title: "Deployment and Results" },
+];
 ---
 
-<Layout>
-  <Header />
-  <main
-    id="main-content"
-    data-layout="index"
-    data-home-path={homePath}
-    class="app-layout my-1"
-  >
-    <section id="hero" class="border-border border-b pt-8 pb-6">
-      <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl">
-        Mingalaba
-      </h1>{" "}
-      <a
-        target="_blank"
-        href={`${import.meta.env.BASE_URL.replace(/\/?$/, "/")}rss.xml`}
-        class="inline-block"
-        aria-label="RSS Feed"
-        title="RSS Feed"
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fdfdfd" />
+    <title>Low Crane Tech Report</title>
+    <script is:inline>
+      const savedTheme = localStorage.getItem("theme");
+      document.documentElement.dataset.theme =
+        savedTheme ??
+        (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="wordmark" href="#top">Low Crane Tech Report</a>
+      <nav aria-label="Sections">
+        {
+          sections.map(section => (
+            <a href={`#${section.id}`}>{section.title}</a>
+          ))
+        }
+      </nav>
+      <button
+        class="theme-toggle"
+        type="button"
+        aria-label="Toggle color theme"
+        title="Toggle color theme"
       >
-        <IconRss
-          width={20}
-          height={20}
-          class="stroke-accent scale-125 stroke-3 rtl:-rotate-90"
-        />
-        <span class="sr-only">RSS Feed</span>
-      </a>
-
-      <p>
-        AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro
-        blog theme. This theme follows best practices and provides accessibility
-        out of the box. Light and dark mode are supported by default. Moreover,
-        additional color schemes can also be configured.
-      </p>
-      <p class="mt-2">
-        Read the blog posts or check{" "}
-        <LinkButton
-          class="hover:text-accent underline decoration-dashed underline-offset-4"
-          href="https://github.com/satnaing/astro-paper#readme"
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z"></path></svg
         >
-          README
-        </LinkButton>{" "}
-        for more info.
-      </p>
-      {
-        socials.length > 0 && (
-          <div class="mt-4 flex max-sm:flex-col sm:items-center">
-            <div class="me-2 mb-1 whitespace-nowrap sm:mb-0">
-              {t.home.socialLinks}:
-            </div>
-            <Socials />
+      </button>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="report-title">
+        <h1 id="report-title">Low Crane Tech Report</h1>
+        <div class="hero-image media-frame light-frame">
+          <img
+            src="/media/course-map.png"
+            alt=""
+            width="1604"
+            height="1604"
+            fetchpriority="high"
+          />
+        </div>
+      </section>
+
+      <section
+        class="report-section"
+        id="dual-approach"
+        aria-labelledby="dual-title"
+      >
+        <h2 id="dual-title">Our Dual Approach</h2>
+        <div class="two-up">
+          <div class="media-frame dark-frame">
+            <img
+              src="/media/rl-policy.png"
+              alt=""
+              width="2600"
+              height="1365"
+              loading="lazy"
+            />
           </div>
-        )
-      }
-    </section>
+          <div class="media-frame">
+            <img
+              src="/media/classical-localization.png"
+              alt=""
+              width="1920"
+              height="1080"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
 
-    {
-      featuredPosts.length > 0 && (
-        <section
-          id="featured"
-          class:list={[
-            "pt-12 pb-6",
-            { "border-border border-b": recentPosts.length > 0 },
-          ]}
+      <section
+        class="report-section"
+        id="rl-approach"
+        aria-labelledby="rl-title"
+      >
+        <h2 id="rl-title">RL Approach</h2>
+        <div class="media-frame dark-frame">
+          <img
+            src="/media/rl-sampling.png"
+            alt=""
+            width="2660"
+            height="1260"
+            loading="lazy"
+          />
+        </div>
+        <div class="two-up videos">
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            aria-label="RL Approach video one"
+            ><source src="/media/clip-1.mp4" type="video/mp4" /></video
+          >
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            aria-label="RL Approach video two"
+            ><source src="/media/clip-2.mp4" type="video/mp4" /></video
+          >
+        </div>
+      </section>
+
+      <section
+        class="report-section"
+        id="classical-approach"
+        aria-labelledby="classical-title"
+      >
+        <h2 id="classical-title">Classical Approach</h2>
+        <div class="two-up">
+          <div class="media-frame">
+            <img
+              src="/media/classical-localization.png"
+              alt=""
+              width="1920"
+              height="1080"
+              loading="lazy"
+            />
+          </div>
+          <div class="media-frame">
+            <img
+              src="/media/classical-planning.png"
+              alt=""
+              width="1920"
+              height="1080"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="two-up videos">
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            poster="/media/classical-localization.png"
+            aria-label="Classical Approach localization video"
+            ><source src="/media/clip-3.mp4" type="video/mp4" /></video
+          >
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            poster="/media/classical-planning.png"
+            aria-label="Classical Approach planning video"
+            ><source src="/media/clip-4.mp4" type="video/mp4" /></video
+          >
+        </div>
+      </section>
+
+      <section
+        class="report-section"
+        id="deployment-results"
+        aria-labelledby="results-title"
+      >
+        <h2 id="results-title">Deployment and Results</h2>
+        <div class="media-frame">
+          <img
+            src="/media/flight-course.png"
+            alt=""
+            width="1920"
+            height="1080"
+            loading="lazy"
+          />
+        </div>
+        <video
+          class="result-video"
+          controls
+          playsinline
+          preload="metadata"
+          poster="/media/flight-course.png"
+          aria-label="Deployment and Results video"
+          ><source src="/media/clip-5.mp4" type="video/mp4" /></video
         >
-          <h2 class="text-2xl font-semibold tracking-wide">
-            {t.home.featured}
-          </h2>
-          <ul>
-            {featuredPosts.map(data => (
-              <Card variant="h3" {...data} />
-            ))}
-          </ul>
-        </section>
-      )
-    }
+      </section>
+    </main>
+    <script>
+      document
+        .querySelector<HTMLButtonElement>(".theme-toggle")
+        ?.addEventListener("click", () => {
+          const next =
+            document.documentElement.dataset.theme === "dark"
+              ? "light"
+              : "dark";
+          document.documentElement.dataset.theme = next;
+          localStorage.setItem("theme", next);
+        });
+    </script>
+  </body>
+</html>
 
-    {
-      recentPosts.length > 0 && (
-        <section id="recent-posts" class="pt-12 pb-6">
-          <h2 class="text-2xl font-semibold tracking-wide">
-            {t.home.recentPosts}
-          </h2>
-          <ul>
-            {recentPosts.slice(0, postsConfig.perIndex).map(data => (
-              <Card variant="h3" {...data} />
-            ))}
-          </ul>
-        </section>
-      )
+<style>
+  :global(:root) {
+    color-scheme: light;
+    --background: #fdfdfd;
+    --foreground: #282728;
+    --accent: #006cac;
+    --muted: #e6e6e6;
+    --border: #ece9e9;
+  }
+  :global(:root[data-theme="dark"]) {
+    color-scheme: dark;
+    --background: #212737;
+    --foreground: #eaedf3;
+    --accent: #ff6b01;
+    --muted: #343f60;
+    --border: #47536d;
+  }
+  :global(*) {
+    box-sizing: border-box;
+  }
+  :global(html) {
+    scroll-behavior: smooth;
+  }
+  :global(body) {
+    margin: 0;
+    background: var(--background);
+    color: var(--foreground);
+    font-family:
+      ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    line-height: 1.5;
+  }
+  :global(a) {
+    color: inherit;
+  }
+  :global(button),
+  :global(a) {
+    -webkit-tap-highlight-color: transparent;
+  }
+  :global(:focus-visible) {
+    outline: 2px dashed var(--accent);
+    outline-offset: 4px;
+  }
+  .site-header {
+    max-width: 1180px;
+    margin: auto;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .wordmark {
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 20px;
+    margin-left: auto;
+    font-size: 0.78rem;
+  }
+  nav a {
+    text-decoration: none;
+  }
+  nav a:hover,
+  .wordmark:hover {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 5px;
+  }
+  .theme-toggle {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--foreground);
+    cursor: pointer;
+  }
+  .theme-toggle svg {
+    width: 19px;
+    height: 19px;
+  }
+  main {
+    max-width: 1180px;
+    padding: 0 24px 110px;
+    margin: auto;
+  }
+  .hero {
+    padding: 78px 0 70px;
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+    gap: 56px;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+  }
+  h1 {
+    margin: 0;
+    max-width: 11ch;
+    font-size: clamp(3rem, 7vw, 6.25rem);
+    line-height: 1.05;
+    letter-spacing: -0.07em;
+  }
+  h2 {
+    margin: 0 0 32px;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.13;
+    letter-spacing: -0.055em;
+  }
+  .report-section {
+    padding: 84px 0;
+    border-bottom: 1px solid var(--border);
+    scroll-margin-top: 24px;
+  }
+  .media-frame,
+  video {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--muted);
+  }
+  .media-frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .dark-frame {
+    background: #050505;
+  }
+  .light-frame {
+    background: white;
+  }
+  .hero-image {
+    max-height: 470px;
+    display: grid;
+    place-items: center;
+  }
+  .hero-image img {
+    max-height: 470px;
+    object-fit: contain;
+  }
+  .two-up {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+  .videos {
+    margin-top: 18px;
+  }
+  video {
+    aspect-ratio: 16 / 9;
+    background: #090909;
+    object-fit: contain;
+  }
+  .videos video:first-child:nth-last-child(2) {
+    width: 100%;
+  }
+  .result-video {
+    margin-top: 18px;
+  }
+  @media (max-width: 820px) {
+    .site-header {
+      flex-wrap: wrap;
     }
-
-    <div class="my-8 text-center">
-      <LinkButton href={getRelativeLocaleUrl(locale, "posts")}>
-        {t.home.allPosts}
-        <IconArrowRight class="inline-block rtl:-rotate-180" />
-      </LinkButton>
-    </div>
-  </main>
-  <Footer />
-</Layout>
-
-<script>
-  document.addEventListener("astro:page-load", () => {
-    const indexLayout = (document.querySelector("#main-content") as HTMLElement)
-      ?.dataset;
-    const baseRoot = import.meta.env.BASE_URL.replace(/\/?$/, "/");
-    if (indexLayout?.layout) {
-      sessionStorage.setItem("backUrl", indexLayout.homePath ?? baseRoot);
+    nav {
+      order: 3;
+      width: 100%;
+      margin: 0;
     }
-  });
-</script>
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 60px 0;
+      gap: 34px;
+    }
+    .hero-image {
+      max-height: 340px;
+    }
+    .hero-image img {
+      max-height: 340px;
+    }
+  }
+  @media (max-width: 600px) {
+    .site-header,
+    main {
+      padding-left: 18px;
+      padding-right: 18px;
+    }
+    .two-up {
+      grid-template-columns: 1fr;
+    }
+    .report-section {
+      padding: 60px 0;
+    }
+    nav {
+      gap: 8px 15px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    :global(html) {
+      scroll-behavior: auto;
+    }
+  }
+</style>
