@@ -259,6 +259,10 @@ h2 {
 .light-frame {
   background: white;
 }
+.hero-copy h1 {
+  max-width: none;
+  font-size: clamp(2.4rem, 5.4vw, 4.75rem);
+}
 .hero-copy p {
   margin: 1.25rem 0 0;
   max-width: 46ch;
