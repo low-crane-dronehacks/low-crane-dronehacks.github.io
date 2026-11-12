@@ -162,6 +162,17 @@ h2 {
   border: 1px solid var(--border);
   border-radius: 8px;
 }
+.deployment-copy {
+  display: flow-root;
+}
+#deployment-results .deployment-gif {
+  float: right;
+  width: 220px;
+  max-width: 38%;
+  margin: 4px 0 20px 30px;
+  border: 0;
+  border-radius: 0;
+}
 .report-section table {
   display: block;
   width: 100%;
@@ -175,6 +186,32 @@ h2 {
 }
 #dual-approach {
   min-height: 260px;
+}
+.dual-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+  gap: clamp(24px, 4vw, 56px);
+  align-items: center;
+}
+.dual-copy {
+  min-width: 0;
+}
+.dual-photo img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center 35%;
+}
+@media (max-width: 760px) {
+  .dual-layout {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 480px) {
+  #deployment-results .deployment-gif {
+    float: none;
+    max-width: 100%;
+    margin: 0 0 24px;
+  }
 }
 .media-frame,
 video {
@@ -272,6 +309,15 @@ video {
 .team-intro {
   padding: 78px 0 52px;
   border-bottom: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 36px;
+  align-items: center;
+}
+.team-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 .team-title {
   max-width: none;
@@ -319,6 +365,7 @@ video {
   }
   .team-intro {
     padding: 56px 0 42px;
+    grid-template-columns: 1fr;
   }
   .team-card {
     min-height: 0;
