@@ -1,6 +1,6 @@
 ### Our Learning Approach: Sparse Rewards
 
-To ensure we could train an optimal policy fast without having to tune reward functions, we used a sparse reward formulation which only rewarded the agent **+1 for landing on the final pad**. No penalty for collisions, just terminating the episode.
+To ensure we could train an optimal policy fast without having to tune reward functions, we used a sparse reward formulation which only rewarded the agent +1 for landing on the final pad. No penalty for collisions, just terminating the episode.
 
 #### So how does the agent learn?
 
@@ -8,6 +8,6 @@ Clearly if you send PPO at this problem, it will never get any signal and try ra
 
 1. Thousands of initial states are uniformly sampled (plus some extra bias to the start and end).
 2. The policy's performance is tracked over training.
-3. As the policy learns, we prioritize **50% success: not too hard, and not too easy**.
+3. As the policy learns, we prioritize 50% success: not too hard, and not too easy.
 
 > This drastically improves sample efficiency and exploration, and enables PPO to solve the task.

@@ -17,8 +17,8 @@ For our RL approach, we wanted to learn a policy that could navigate the course 
 
 - Is trained on a variety of navigation scenes
 - Maps depth observations directly to velocity commands
-- Can run at **100 Hz on a Raspberry Pi without any VIO**
+- Can run at 100 Hz on a Raspberry Pi without any VIO
 
 </div></div>
 
-We use a **sparse reward** framework so the same policy can be trained on any scene without tweaking reward constants, and employ **heavy domain randomization** to ensure zero-shot sim2real performance.
+We use a sparse reward framework so the same policy can be trained on any scene without tweaking reward constants, and employ heavy domain randomization to ensure zero-shot sim2real performance.

@@ -26,13 +26,13 @@ For the first, we modeled perturbations of the environment and added them as add
 
 Depth noise was also a significant concern, and the OAK-D in particular has a very peculiar noise pattern. Since we have no way of knowing how it performs stereo matching, we decided to not use the precomputed depth image.
 
-Instead, we ran **NVIDIA VPI** to perform SGM on the Jetson from the OAK-D's stereo camera streams. This way, we could use **the exact same algorithm and noise pattern in simulation** to reduce any potential sim2real gap.
+Instead, we ran NVIDIA VPI to perform SGM on the Jetson from the OAK-D's stereo camera streams. This way, we could use the exact same algorithm and noise pattern in simulation to reduce any potential sim2real gap.
 
 #### 3. Background
 
-Finally, we needed to model the background. This was our biggest concern, as the boundary walls in real life are not solid walls, but **nets which are invisible to the depth camera**. Additionally, there can be a variety of possible objects or scenes in the background.
+Finally, we needed to model the background. This was our biggest concern, as the boundary walls in real life are not solid walls, but nets which are invisible to the depth camera. Additionally, there can be a variety of possible objects or scenes in the background.
 
-Initially, the policy was struggling to learn when we removed the boundary walls, since it can be hard to distinguish between navigable free space and "out of bounds". We quickly adapted by **adding random objects or walls in the background**, so that the policy would treat a random background scene as noise, but also a signal to stay on course.
+Initially, the policy was struggling to learn when we removed the boundary walls, since it can be hard to distinguish between navigable free space and "out of bounds". We quickly adapted by adding random objects or walls in the background, so that the policy would treat a random background scene as noise, but also a signal to stay on course.
 
 We also noticed that there were structural poles every 5 ft to hang the netting, so we modeled those in simulation as well, thinking that maybe the policy could use it as a signal to stay on track.
 
@@ -40,4 +40,4 @@ We also noticed that there were structural poles every 5 ft to hang the netting,
 
 #### Result
 
-All of these tricks combined resulted in a policy that showed **no sim2real gap**. We even tested the policy in an out-of-distribution (OOD) open room and saw a trajectory very similar to the one in simulation.
+All of these tricks combined resulted in a policy that showed no sim2real gap. We even tested the policy in an out-of-distribution (OOD) open room and saw a trajectory very similar to the one in simulation.
