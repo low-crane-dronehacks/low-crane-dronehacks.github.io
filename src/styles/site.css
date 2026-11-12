@@ -132,6 +132,31 @@ h2 {
   margin: 1.75rem 0 0.75rem;
   line-height: 1.25;
 }
+/* readable measure for running text; figures and videos stay full width */
+.report-section :is(p, ul, ol, blockquote, h3, h4) {
+  max-width: 74ch;
+}
+.report-section h3 {
+  margin-top: 3.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+  font-size: 1.45rem;
+  letter-spacing: -0.02em;
+}
+.report-section h4 {
+  margin-top: 2.25rem;
+  color: var(--accent);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.report-section ul,
+.report-section ol {
+  padding-left: 1.4rem;
+}
+.report-section li::marker {
+  color: var(--accent);
+}
 .report-section a {
   color: var(--accent);
   text-underline-offset: 3px;
@@ -141,8 +166,13 @@ h2 {
 }
 .report-section blockquote {
   margin-left: 0;
-  padding-left: 1rem;
+  padding: 0.85rem 1.1rem;
   border-left: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  background: var(--muted);
+}
+.report-section blockquote p {
+  margin: 0;
 }
 .report-section pre {
   overflow-x: auto;
