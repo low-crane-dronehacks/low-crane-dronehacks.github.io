@@ -132,3 +132,40 @@ function enhance(fig: HTMLElement) {
 }
 
 document.querySelectorAll<HTMLElement>(".player").forEach(enhance);
+
+async function mountRerun(el: HTMLElement) {
+  const rrd = el.dataset.rrd;
+  if (!rrd) return;
+  const rbl = el.dataset.rbl;
+  const urls = [
+    ...(rbl ? [new URL(rbl, window.location.href).href] : []),
+    new URL(rrd, window.location.href).href,
+  ];
+  const { WebViewer } = await import("@rerun-io/web-viewer");
+  const viewer = new WebViewer();
+  const theme =
+    document.documentElement.dataset.theme === "light" ? "light" : "dark";
+  await viewer.start(urls, el, {
+    width: "100%",
+    height: "100%",
+    hideWelcomeScreen: true,
+    allowFullscreen: true,
+    theme,
+  });
+}
+
+document.querySelectorAll<HTMLElement>(".rerun-player").forEach(el => {
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry?.isIntersecting) return;
+        io.disconnect();
+        mountRerun(el).catch(() => {});
+      },
+      { rootMargin: "300px" }
+    );
+    io.observe(el);
+  } else {
+    mountRerun(el).catch(() => {});
+  }
+});

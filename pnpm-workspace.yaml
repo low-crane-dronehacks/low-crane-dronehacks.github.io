@@ -2,3 +2,5 @@ packages: ["."]
 allowBuilds:
   esbuild: true
   sharp: true
+minimumReleaseAgeExclude:
+  - "@rerun-io/web-viewer@0.43.1"
