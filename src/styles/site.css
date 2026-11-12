@@ -248,6 +248,12 @@ h2 {
   border: 1px solid var(--border);
   border-radius: 8px;
 }
+/* Diagrams draw their own cards on a transparent background (light and dark themes). */
+.report-section img.diagram {
+  margin: 20px 0 24px;
+  border: 0;
+  border-radius: 0;
+}
 .deployment-copy {
   display: flow-root;
 }
@@ -663,4 +669,76 @@ h2 {
   .team-card {
     min-height: 0;
   }
+}
+
+.viz-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-top: 0.65rem;
+  padding: 0.65rem 0.9rem;
+  border-radius: 0.6rem;
+  border: 1px solid color-mix(in srgb, currentColor 12%, transparent);
+  background: color-mix(in srgb, currentColor 3.5%, transparent);
+  font-size: 0.84rem;
+  line-height: 1.4;
+}
+
+.viz-legend-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem 1.1rem;
+}
+
+.viz-group-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.6;
+  min-width: 5.5rem;
+}
+
+.viz-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  color: color-mix(in srgb, currentColor 82%, transparent);
+}
+
+.viz-item strong {
+  color: inherit;
+  font-weight: 600;
+}
+
+.viz-swatch {
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* Trajectory line swatch */
+.viz-line {
+  width: 1.1rem;
+  height: 0.22rem;
+  border-radius: 999px;
+  background: var(--c);
+}
+
+/* 3D voxel square swatch */
+.viz-box {
+  width: 0.68rem;
+  height: 0.68rem;
+  border-radius: 0.16rem;
+  background: color-mix(in srgb, var(--c) 75%, transparent);
+  border: 1.5px solid var(--c);
+}
+
+/* Red circle obstacle swatch */
+.viz-ring {
+  width: 0.72rem;
+  height: 0.72rem;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--c) 22%, transparent);
+  border: 2px solid var(--c);
 }
