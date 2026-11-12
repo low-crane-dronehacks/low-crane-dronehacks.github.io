@@ -281,6 +281,12 @@ h2 {
   font-weight: 700;
   letter-spacing: 0.02em;
 }
+.hero-copy .judges {
+  margin-top: 0.9rem;
+  opacity: 0.7;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+}
 .hero-copy .award span {
   padding: 0.2rem 0.6rem;
   border-radius: 999px;
