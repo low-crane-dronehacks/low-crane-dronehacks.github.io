@@ -259,6 +259,37 @@ h2 {
 .light-frame {
   background: white;
 }
+.hero-copy p {
+  margin: 1.25rem 0 0;
+  max-width: 46ch;
+  font-size: 1.02rem;
+  line-height: 1.6;
+}
+.hero-copy a {
+  color: var(--accent);
+  text-underline-offset: 3px;
+}
+.hero-copy .award {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+  padding: 0.4rem 0.9rem 0.4rem 0.4rem;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.hero-copy .award span {
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  color: var(--background);
+  background: var(--accent);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
 .hero-image {
   max-height: 470px;
   display: grid;
