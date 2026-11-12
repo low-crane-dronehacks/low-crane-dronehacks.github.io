@@ -300,7 +300,8 @@ h2 {
   }
 }
 .media-frame,
-.player {
+.player,
+.rerun-player {
   display: block;
   overflow: hidden;
   width: 100%;
@@ -393,11 +394,22 @@ h2 {
     grid-template-columns: 1fr;
   }
 }
-.player {
+.player,
+.rerun-player {
   position: relative;
   margin: 0;
   background: #090909;
   box-shadow: 0 10px 30px -12px rgb(0 0 0 / 0.45);
+}
+.rerun-player {
+  aspect-ratio: 16 / 9;
+  min-height: 360px;
+}
+.rerun-player.figure {
+  margin: 24px 0 28px;
+}
+.rerun-player canvas {
+  display: block;
 }
 .player video {
   display: block;
