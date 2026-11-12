@@ -6,9 +6,7 @@ For our classical approach, we wanted a stack that wouldn't let the drone drift 
 
 #### Why build a classical stack too?
 
-- We already get the rough course layout and gate order ahead of time
-- VIO drifts over long corridors, and stereo depth likes to punch holes through thin walls
-- A deterministic C++ controller gives us hard safety bounds if an RL policy ever goes rogue
+- Just in case the sim2real gap was bigger than we thought
 
 </div><div>
 
