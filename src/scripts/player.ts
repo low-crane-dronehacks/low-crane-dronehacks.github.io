@@ -133,14 +133,56 @@ function enhance(fig: HTMLElement) {
 
 document.querySelectorAll<HTMLElement>(".player").forEach(enhance);
 
+const isMobile =
+  matchMedia("(max-width: 820px), (hover: none) and (pointer: coarse)")
+    .matches ||
+  /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ||
+  (/Macintosh/i.test(navigator.userAgent) && navigator.maxTouchPoints > 1);
+
+function mountFallbackVideo(el: HTMLElement, showDesktopHint: boolean) {
+  const src = el.dataset.video;
+  if (!src) return;
+  const poster = el.dataset.poster;
+  const label = el.dataset.videoLabel;
+
+  el.classList.remove("rerun-player");
+  el.classList.add("player");
+  el.removeAttribute("aria-label");
+  el.replaceChildren();
+
+  const video = document.createElement("video");
+  video.muted = true;
+  video.loop = true;
+  video.controls = true;
+  video.playsInline = true;
+  video.preload = "metadata";
+  if (poster) video.poster = poster;
+  if (label) video.setAttribute("aria-label", label);
+
+  const source = document.createElement("source");
+  source.src = src;
+  source.type = "video/mp4";
+  video.append(source);
+  el.append(video);
+  enhance(el);
+
+  if (showDesktopHint) {
+    const hint = el
+      .closest(".classical-demo")
+      ?.querySelector<HTMLElement>(".desktop-viz-hint");
+    if (hint) hint.hidden = false;
+  }
+}
+
 async function mountRerun(el: HTMLElement) {
   const rrd = el.dataset.rrd;
   if (!rrd) return;
   const rbl = el.dataset.rbl;
-  const urls = [
-    ...(rbl ? [new URL(rbl, window.location.href).href] : []),
-    new URL(rrd, window.location.href).href,
-  ];
+  const timeline = el.dataset.timeline;
+  const startNanos = el.dataset.startNanos;
+  const rrdUrl = new URL(rrd, window.location.href).href;
+  const rblUrl = rbl ? new URL(rbl, window.location.href).href : null;
+  const urls = [...(rblUrl ? [rblUrl] : []), rrdUrl];
   const { WebViewer } = await import("@rerun-io/web-viewer");
   const viewer = new WebViewer();
   const theme =
@@ -152,20 +194,42 @@ async function mountRerun(el: HTMLElement) {
     allowFullscreen: true,
     theme,
   });
+  for (let i = 0; i < 60; i++) {
+    const state = await viewer.getState();
+    if (state.loading.length === 0 && state.recordings.length > 0) break;
+    await new Promise(r => setTimeout(r, 250));
+  }
+  if (rblUrl) {
+    await viewer.open(rblUrl).catch(() => {});
+  }
+  if (timeline) {
+    const playState = reduceMotion ? "paused" : "playing";
+    await viewer
+      .setTime(
+        startNanos
+          ? { timeline, durationNanos: BigInt(startNanos), playState }
+          : { timeline, playState }
+      )
+      .catch(() => {});
+  }
 }
 
 document.querySelectorAll<HTMLElement>(".rerun-player").forEach(el => {
+  if (isMobile) {
+    mountFallbackVideo(el, true);
+    return;
+  }
   if ("IntersectionObserver" in window) {
     const io = new IntersectionObserver(
       ([entry]) => {
         if (!entry?.isIntersecting) return;
         io.disconnect();
-        mountRerun(el).catch(() => {});
+        mountRerun(el).catch(() => mountFallbackVideo(el, false));
       },
       { rootMargin: "300px" }
     );
     io.observe(el);
   } else {
-    mountRerun(el).catch(() => {});
+    mountRerun(el).catch(() => mountFallbackVideo(el, false));
   }
 });
