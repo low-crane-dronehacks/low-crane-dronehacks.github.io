@@ -47,6 +47,8 @@ At each keyframe, iSAM2 also updates a local 3D obstacle grid so the planner can
   class="figure rerun-player"
   data-rrd="/media/rerun/isam2.rrd"
   data-rbl="/media/rerun/dronehack_isam2.rbl"
+  data-timeline="sim_time"
+  data-start-nanos="400000000"
   aria-label="Classical Approach localization Rerun viewer"
 ></figure>
 
@@ -73,6 +75,8 @@ Before commands go out to the flight controller, we run a couple final checks:
   class="figure rerun-player"
   data-rrd="/media/rerun/mppi.rrd"
   data-rbl="/media/rerun/mppi_blueprint.rbl"
+  data-timeline="time"
+  data-start-nanos="5200000000"
   aria-label="Classical Approach planning Rerun viewer"
 ></figure>
 

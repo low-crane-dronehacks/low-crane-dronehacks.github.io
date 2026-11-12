@@ -137,10 +137,11 @@ async function mountRerun(el: HTMLElement) {
   const rrd = el.dataset.rrd;
   if (!rrd) return;
   const rbl = el.dataset.rbl;
-  const urls = [
-    ...(rbl ? [new URL(rbl, window.location.href).href] : []),
-    new URL(rrd, window.location.href).href,
-  ];
+  const timeline = el.dataset.timeline;
+  const startNanos = el.dataset.startNanos;
+  const rrdUrl = new URL(rrd, window.location.href).href;
+  const rblUrl = rbl ? new URL(rbl, window.location.href).href : null;
+  const urls = [...(rblUrl ? [rblUrl] : []), rrdUrl];
   const { WebViewer } = await import("@rerun-io/web-viewer");
   const viewer = new WebViewer();
   const theme =
@@ -152,6 +153,24 @@ async function mountRerun(el: HTMLElement) {
     allowFullscreen: true,
     theme,
   });
+  for (let i = 0; i < 60; i++) {
+    const state = await viewer.getState();
+    if (state.loading.length === 0 && state.recordings.length > 0) break;
+    await new Promise(r => setTimeout(r, 250));
+  }
+  if (rblUrl) {
+    await viewer.open(rblUrl).catch(() => {});
+  }
+  if (timeline) {
+    const playState = reduceMotion ? "paused" : "playing";
+    await viewer
+      .setTime(
+        startNanos
+          ? { timeline, durationNanos: BigInt(startNanos), playState }
+          : { timeline, playState }
+      )
+      .catch(() => {});
+  }
 }
 
 document.querySelectorAll<HTMLElement>(".rerun-player").forEach(el => {
