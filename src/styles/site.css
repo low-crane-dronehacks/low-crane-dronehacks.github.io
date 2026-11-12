@@ -132,10 +132,6 @@ h2 {
   margin: 1.75rem 0 0.75rem;
   line-height: 1.25;
 }
-/* readable measure for running text; figures and videos stay full width */
-.report-section :is(p, ul, ol, blockquote, h3, h4) {
-  max-width: 74ch;
-}
 .report-section h3 {
   margin-top: 3.5rem;
   padding-top: 1.25rem;
