@@ -162,6 +162,17 @@ h2 {
   border: 1px solid var(--border);
   border-radius: 8px;
 }
+.deployment-copy {
+  display: flow-root;
+}
+#deployment-results .deployment-gif {
+  float: right;
+  width: 220px;
+  max-width: 38%;
+  margin: 4px 0 20px 30px;
+  border: 0;
+  border-radius: 0;
+}
 .report-section table {
   display: block;
   width: 100%;
@@ -193,6 +204,13 @@ h2 {
 @media (max-width: 760px) {
   .dual-layout {
     grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 480px) {
+  #deployment-results .deployment-gif {
+    float: none;
+    max-width: 100%;
+    margin: 0 0 24px;
   }
 }
 .media-frame,
