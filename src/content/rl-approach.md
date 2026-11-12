@@ -17,7 +17,7 @@ For our RL approach, we wanted to learn a policy that could navigate the course 
 
 - Is trained on a variety of navigation scenes
 - Maps depth observations directly to velocity commands
-- Can run at **20 Hz on a Raspberry Pi without any VIO**
+- Can run at **100 Hz on a Raspberry Pi without any VIO**
 
 </div></div>
 
