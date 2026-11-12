@@ -27,7 +27,7 @@ import { Content as DeploymentResults } from "../content/deployment-results.md";
     <header class="site-header">
       <a class="wordmark" href="#top">Low Crane Tech Report</a>
       <nav aria-label="Main navigation">
-        <a href="/team/">The Team</a>
+        <a class="nav-cta" href="/team/">Meet the Team</a>
       </nav>
       <button
         class="theme-toggle"
@@ -50,7 +50,12 @@ import { Content as DeploymentResults } from "../content/deployment-results.md";
 
     <main id="top">
       <section class="hero" aria-label="Low Crane Tech Report">
-        <Intro />
+        <div class="hero-copy">
+          <Intro />
+          <a class="team-cta" href="/team/"
+            >Meet the team behind it <span aria-hidden="true">→</span></a
+          >
+        </div>
         <div class="hero-image media-frame light-frame">
           <img
             src="/media/course-map.png"
@@ -101,6 +106,17 @@ import { Content as DeploymentResults } from "../content/deployment-results.md";
           </div>
         </figure>
         <RlSim2Real />
+        <figure class="figure">
+          <div class="media-frame dark-frame">
+            <img
+              src="/media/rl-sim2real.png"
+              alt="Sim2Real: dynamics and sensing randomization, matched VPI stereo matching in sim and on the drone, layout and background randomization"
+              width="2600"
+              height="1365"
+              loading="lazy"
+            />
+          </div>
+        </figure>
         <div class="two-up videos">
           <figure class="player">
             <video
