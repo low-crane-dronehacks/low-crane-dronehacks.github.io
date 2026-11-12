@@ -248,12 +248,6 @@ h2 {
   border: 1px solid var(--border);
   border-radius: 8px;
 }
-/* Diagrams draw their own cards on a transparent background (light and dark themes). */
-.report-section img.diagram {
-  margin: 20px 0 24px;
-  border: 0;
-  border-radius: 0;
-}
 .deployment-copy {
   display: flow-root;
 }

@@ -20,7 +20,17 @@ For our classical approach, we wanted a stack that wouldn't let the drone drift 
 
 </div></div>
 
-<img class="diagram" src="/media/architecture.svg" alt="Classical approach architecture: OAK-D S2 stereo camera, flight sensors and the static course map feed cuVSLAM, PX4 EKF2, stereo depth and a planning-only iSAM2 factor graph; an A* global planner with geometric and kinodynamic optimization sends a reference trajectory to the 50 Hz MPPI local planner, which commands PX4 with velocity and yaw-rate setpoints" width="1920" height="1080" loading="lazy" />
+<figure class="figure">
+  <div class="media-frame dark-frame">
+    <img
+      src="/media/architecture.png"
+      alt="Classical approach architecture: OAK-D S2 stereo camera, flight sensors and the static course map feed cuVSLAM, PX4 EKF2, stereo depth and a planning-only iSAM2 factor graph; an A* global planner with geometric and kinodynamic optimization sends a reference trajectory to the 50 Hz MPPI local planner, which commands PX4 with velocity and yaw-rate setpoints"
+      width="3840"
+      height="1980"
+      loading="lazy"
+    />
+  </div>
+</figure>
 
 ### Global Planner
 
@@ -32,12 +42,32 @@ This prior is fed into a 2D grid A\* planner at flight altitude with a corridor-
 
 - **Gate overshoot pinning**: Instead of aiming at the gate's center (which can cause horizon-based planners to cut corners, undervaluing the closest gate waypoint), we pin a vertex 0.18 - 0.30 m past the gate center to ensure we don't pull a path short.
 
-  <img class="diagram" src="/media/planner-pinning.svg" alt="On the real course, aiming at checkpoint 1's centre rounds the U-turn off 5 cm before the line; the planner's pinned vertex 0.20 m past it clears the line by 19 cm" width="1600" height="660" loading="lazy" />
+  <figure class="figure">
+    <div class="media-frame dark-frame">
+      <img
+        src="/media/planner-pinning.png"
+        alt="On the real course, aiming at checkpoint 1's centre rounds the U-turn off 5 cm before the line; the planner's pinned vertex 0.20 m past it clears the line by 19 cm"
+        width="3200"
+        height="1360"
+        loading="lazy"
+      />
+    </div>
+  </figure>
 
 - **Line of sight short-cutting**: We remove redundant collinear waypoints while respecting wall clearance (we keep the redundancy the overshoot pinning adds for above reasons.)
 - **Chaikin corner-cutting**: We run 4 iterations of subdivisions to turn discrete waypoint turns into smoother, continuous curves (keeping gate crossings locked for safety)
 
-  <img class="diagram" src="/media/planner-smoothing.svg" alt="The launch-to-Gate-A path after the shortcut, Chaikin ×1, Chaikin ×4 and a uniform 2 cm resample, with the pinned checkpoint vertex kept throughout" width="1600" height="540" loading="lazy" />
+  <figure class="figure">
+    <div class="media-frame dark-frame">
+      <img
+        src="/media/planner-smoothing.png"
+        alt="The launch-to-Gate-A path after the shortcut, Chaikin ×1, Chaikin ×4 and a uniform 2 cm resample, with the pinned checkpoint vertex kept throughout"
+        width="3200"
+        height="1240"
+        loading="lazy"
+      />
+    </div>
+  </figure>
 
 - **Uniform arc-length resampling**: Finally, we resample the curve at uniform 2cm intervals so curvature and velocity profiles are smooth and integrable by the dynamics pass, up next.
 

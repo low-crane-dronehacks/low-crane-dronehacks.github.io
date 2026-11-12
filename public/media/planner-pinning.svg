@@ -1,0 +1,235 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="680" viewBox="0 0 1600 680">
+<defs><marker id="aht" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 L2.5,5 z" fill="#CCC0E4"/></marker><marker id="aho" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 L2.5,5 z" fill="#F6AE66"/></marker><marker id="ahg" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 L2.5,5 z" fill="#8ACC8A"/></marker><marker id="ahb" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 L2.5,5 z" fill="#7EAEE4"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 L2.5,5 z" fill="#E47266"/></marker><marker id="ahw" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 L2.5,5 z" fill="#FCFCFC"/></marker></defs>
+<text x="24.0" y="50.0" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="28" font-weight="400" fill="#CCC0E4" text-anchor="start">checkpoint 1 only counts 15 cm past the line, so we aim past it</text>
+<rect x="20" y="84" width="770" height="548" rx="18" fill="none" stroke="#E47266" stroke-width="2.4" stroke-dasharray="9 7"/>
+<circle cx="46" cy="110" r="9" fill="#E47266"/>
+<text x="405.0" y="116.0" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="15" font-weight="400" fill="#CCC0E4" text-anchor="middle">aim at the line's centre</text>
+<clipPath id="clip1"><rect x="50" y="150" width="369.0" height="411.0"/></clipPath>
+<g clip-path="url(#clip1)">
+<path d="M60.8 207.8 H228.4" stroke="#E47266" stroke-width="1.8" stroke-dasharray="4 4"/>
+<path d="M406.0 1072.5 L423.9 1023.2" stroke="#E4DEF0" stroke-width="15.0" stroke-linecap="butt"/>
+<path d="M470.8 894.3 L541.5 700.1" stroke="#E4DEF0" stroke-width="15.0" stroke-linecap="butt"/>
+<path d="M60.8 549.4 L754.2 549.4" stroke="#E4DEF0" stroke-width="15.0" stroke-linecap="butt"/>
+<path d="M664.0 787.3 L746.8 559.9" stroke="#E4DEF0" stroke-width="15.0" stroke-linecap="butt"/>
+<path d="M228.4 541.8 L228.4 299.9" stroke="#E4DEF0" stroke-width="15.0" stroke-linecap="butt"/>
+<path d="M371.7 711.3 L371.7 557.0" stroke="#E4DEF0" stroke-width="15.0" stroke-linecap="butt"/>
+<path d="M396.1 402.7 L396.1 160.8" stroke="#E4DEF0" stroke-width="15.0" stroke-linecap="butt"/>
+<path d="M563.7 541.8 L563.7 299.9" stroke="#E4DEF0" stroke-width="15.0" stroke-linecap="butt"/>
+<path d="M754.2 557.0 L754.2 541.8" stroke="#E4DEF0" stroke-width="15.0" stroke-linecap="butt"/>
+<rect x="60.8" y="160.8" width="914.4" height="914.4" fill="none" stroke="#8A72B4" stroke-width="2.4" stroke-dasharray="9 7"/>
+<path d="M60.8 230.3 L228.4 230.3" stroke="#FCD866" stroke-width="4.5" stroke-dasharray="12 8"/>
+<path d="M140.8 480.8 L132.1 231.5 L252.1 246.4 L312.1 306.5 L342.1 426.4 L372.1 456.5 L417.1 456.5 L477.1 396.4 L514.6 269.0 L537.1 246.4 L582.1 246.4 L589.6 253.9 L597.1 261.4 L604.5 269.0" fill="none" stroke="#D8C0F0" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" stroke-opacity="0.8" stroke-dasharray="6 5"/>
+<path d="M140.8 480.8 L140.8 479.9 L140.7 477.9 L140.6 475.0 L140.5 471.1 L140.3 466.2 L140.1 460.4 L139.9 453.6 L139.6 445.8 L139.3 437.0 L138.9 427.3 L138.6 416.5 L138.1 404.9 L137.7 392.2 L137.2 378.6 L136.7 363.9 L136.2 348.4 L136.1 333.8 L136.6 320.3 L137.5 307.8 L139.0 296.3 L141.0 285.9 L143.4 276.5 L146.4 268.2 L149.9 260.8 L153.9 254.5 L158.3 249.3 L163.3 245.1 L168.8 241.9 L174.8 239.7 L181.3 238.6 L188.3 238.5 L195.8 239.4 L203.1 240.5 L210.1 241.8 L216.9 243.3 L223.5 244.9 L229.8 246.7 L235.9 248.7 L241.7 250.9 L247.4 253.2 L252.8 255.8 L257.9 258.5 L262.8 261.3 L267.5 264.4 L272.0 267.6 L276.2 271.0 L280.2 274.6 L283.9 278.3 L287.6 282.3 L291.1 286.5 L294.5 291.0 L297.8 295.7 L300.9 300.6 L304.0 305.7 L306.9 311.1 L309.7 316.8 L312.4 322.6 L315.0 328.7 L317.4 335.0 L319.8 341.6 L322.0 348.4 L324.1 355.4 L326.1 362.7 L328.0 370.2 L329.9 377.3 L331.7 384.1 L333.6 390.6 L335.5 396.7 L337.4 402.4 L339.2 407.8 L341.1 412.9 L343.0 417.5 L344.9 421.9 L346.7 425.9 L348.6 429.5 L350.5 432.8 L352.4 435.7 L354.2 438.3 L356.1 440.5 L358.0 442.4 L359.9 444.1 L361.9 445.8 L364.0 447.3 L366.1 448.7 L368.2 450.0 L370.5 451.2 L372.8 452.2 L375.1 453.2 L377.5 454.0 L380.0 454.7 L382.5 455.3 L385.1 455.7 L387.7 456.1 L390.4 456.3 L393.1 456.5 L396.0 456.5 L398.8 456.2 L401.8 455.7 L404.7 455.0 L407.8 454.1 L410.9 452.9 L414.1 451.5 L417.3 449.9 L420.6 448.0 L423.9 445.9 L427.3 443.6 L430.8 441.0 L434.3 438.2 L437.9 435.1 L441.5 431.8 L445.2 428.3 L448.9 424.6 L452.6 420.6 L456.2 416.3 L459.6 411.7 L463.0 406.9 L466.4 401.9 L469.6 396.5 L472.7 390.9 L475.8 385.1 L478.7 379.0 L481.6 372.6 L484.4 365.9 L487.1 359.0 L489.7 351.8 L492.2 344.4 L494.6 336.7 L497.0 328.7 L499.3 321.2 L501.5 314.0 L503.7 307.3 L505.8 300.9 L507.8 295.0 L509.8 289.5 L511.7 284.4 L513.6 279.7 L515.4 275.5 L517.2 271.6 L518.9 268.1 L520.5 265.1 L522.1 262.4 L523.6 260.2 L525.1 258.4 L526.5 257.0 L528.0 255.7 L529.6 254.4 L531.2 253.3 L533.0 252.3 L534.9 251.3 L536.8 250.4 L538.8 249.6 L540.9 248.9 L543.1 248.3 L545.4 247.8 L547.8 247.3 L550.2 247.0 L552.8 246.7 L555.4 246.5 L558.1 246.4 L561.0 246.4 L563.6 246.5 L566.1 246.5 L568.5 246.6 L570.7 246.7 L572.8 246.9 L574.8 247.1 L576.5 247.3 L578.2 247.5 L579.7 247.8 L581.0 248.1 L582.2 248.4 L583.3 248.7 L584.2 249.1 L585.0 249.5 L585.6 250.0 L586.0 250.4 L586.5 250.9 L587.0 251.4 L587.4 251.8 L587.9 252.3 L588.4 252.8 L588.8 253.2 L589.3 253.7 L589.8 254.2 L590.3 254.7 L590.7 255.1 L591.2 255.6 L591.7 256.1 L592.1 256.5 L592.6 257.0 L593.1 257.5 L593.5 257.9 L594.0 258.4 L594.5 258.9 L594.9 259.3 L595.4 259.8 L595.9 260.3 L596.3 260.7 L596.8 261.2 L597.3 261.7 L597.8 262.2 L598.2 262.6 L598.7 263.1 L599.2 263.6 L599.6 264.0 L600.1 264.5 L600.6 265.0 L601.0 265.4 L601.5 265.9 L601.9 266.3 L602.3 266.7 L602.6 267.0 L602.9 267.3 L603.2 267.6 L603.5 267.9 L603.7 268.1 L603.9 268.3 L604.1 268.5 L604.3 268.7 L604.4 268.8 L604.5 268.9 L604.5 268.9 L604.5 269.0" fill="none" stroke="#E47266" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round" stroke-opacity="1.0"/>
+<circle cx="131.9" cy="230.3" r="9" fill="none" stroke="#D8C0F0" stroke-width="1.6"/><path d="M118.9 230.3 h26 M131.9 217.3 v26" stroke="#D8C0F0" stroke-width="1.2"/>
+<circle cx="188.3" cy="238.5" r="6.5" fill="#E47266" stroke="#050505" stroke-width="2"/>
+<g transform="translate(140.8,480.8)"><path d="M-8 -8 L8 8 M8 -8 L-8 8" stroke="#FCFCFC" stroke-width="2.2"/><circle cx="-8" cy="-8" r="5" fill="#050505" stroke="#FCFCFC" stroke-width="1.6"/><circle cx="8" cy="-8" r="5" fill="#050505" stroke="#FCFCFC" stroke-width="1.6"/><circle cx="-8" cy="8" r="5" fill="#050505" stroke="#FCFCFC" stroke-width="1.6"/><circle cx="8" cy="8" r="5" fill="#050505" stroke="#FCFCFC" stroke-width="1.6"/></g>
+<text x="158.8" y="485.8" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="12.5" font-weight="400" fill="#CCC0E4" text-anchor="start">launch</text>
+<circle cx="86.0" cy="230.3" r="12" fill="#FCD866"/>
+<text x="86.0" y="235.4" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="14.399999999999999" font-weight="700" fill="#1A1A1A" text-anchor="middle">1</text>
+<text x="68.0" y="525.0" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="11.5" font-weight="400" fill="#A99CC6" text-anchor="start">first corridor</text>
+<text x="245.0" y="525.0" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="11.5" font-weight="400" fill="#A99CC6" text-anchor="start">maze</text>
+<text x="398.0" y="525.0" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="11.5" font-weight="400" fill="#A99CC6" text-anchor="end">to gate A →</text>
+</g>
+<text x="453.0" y="170.0" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="14.5" font-weight="400" fill="#CCC0E4" text-anchor="start">The first checkpoint is a line at</text>
+<text x="453.0" y="191.0" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="14.5" font-weight="400" fill="#CCC0E4" text-anchor="start">the end of the launch corridor.</text>
+<text x="453.0" y="212.0" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="14.5" font-weight="400" fill="#CCC0E4" text-anchor="start">Aiming at its centre puts the</text>
+<text x="453.0" y="233.0" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="14.5" font-weight="400" fill="#CCC0E4" text-anchor="start">U-turn around the wall right</text>
+<text x="453.0" y="254.0" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="14.5" font-weight="400" fill="#CCC0E4" text-anchor="start">on the line.</text>
+<text x="453.0" y="294.0" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="14.5" font-weight="400" fill="#CCC0E4" text-anchor="start">Corner cutting (and MPPI) rounds</text>
+<text x="453.0" y="315.0" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="14.5" font-weight="400" fill="#CCC0E4" text-anchor="start">that U-turn off early.</text>
+<rect x="453.0" y="356.0" width="257.7" height="29.4" rx="14.7" fill="#E47266"/>
+<text x="581.8" y="375.7" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="14" font-weight="700" fill="#1A1A1A" text-anchor="middle">turns 5 cm before the line</text>
+<text x="453.0" y="418.0" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="14" font-weight="400" fill="#CCC0E4" text-anchor="start">scoring needs 15 cm past it</text>
+<text x="453.0" y="440.0" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="14" font-weight="700" fill="#E47266" text-anchor="start">→ checkpoint missed</text>
+<path d="M453.0 500 h30" stroke="#D8C0F0" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="6 5"/>
+<text x="495.0" y="504.5" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="13" font-weight="400" fill="#CCC0E4" text-anchor="start">A* path, goal = line centre</text>
+<path d="M453.0 526 h30" stroke="#E47266" stroke-width="4.5" stroke-linecap="round"/>
+<text x="495.0" y="530.5" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="13" font-weight="400" fill="#CCC0E4" text-anchor="start">smoothed path</text>
+<path d="M453.0 552 h30" stroke="#E47266" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="4 4"/>
+<text x="495.0" y="556.5" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="13" font-weight="400" fill="#CCC0E4" text-anchor="start">scoring line (+15 cm)</text>
+<path d="M453.0 578 h30" stroke="#FCD866" stroke-width="4.5" stroke-linecap="round" stroke-dasharray="12 8"/>
+<text x="495.0" y="582.5" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="13" font-weight="400" fill="#CCC0E4" text-anchor="start">checkpoint 1 (corridor_end)</text>
+<rect x="810" y="84" width="770" height="548" rx="18" fill="none" stroke="#8ACC8A" stroke-width="2.4" stroke-dasharray="9 7"/>
+<circle cx="836" cy="110" r="9" fill="#8ACC8A"/>
+<text x="1195.0" y="116.0" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="15" font-weight="400" fill="#CCC0E4" text-anchor="middle">pin a vertex past the line</text>
+<clipPath id="clip2"><rect x="840" y="150" width="369.0" height="411.0"/></clipPath>
+<g clip-path="url(#clip2)">
+<rect x="850.8" y="185.3" width="167.6" height="18.0" fill="#8ACC8A" fill-opacity="0.28"/>
+<path d="M850.8 207.8 H1018.4" stroke="#E47266" stroke-width="1.8" stroke-dasharray="4 4"/>
+<path d="M1196.0 1072.5 L1213.9 1023.2" stroke="#E4DEF0" stroke-width="15.0" stroke-linecap="butt"/>
+<path d="M1260.8 894.3 L1331.5 700.1" stroke="#E4DEF0" stroke-width="15.0" stroke-linecap="butt"/>
+<path d="M850.8 549.4 L1544.2 549.4" stroke="#E4DEF0" stroke-width="15.0" stroke-linecap="butt"/>
+<path d="M1454.0 787.3 L1536.8 559.9" stroke="#E4DEF0" stroke-width="15.0" stroke-linecap="butt"/>
+<path d="M1018.4 541.8 L1018.4 299.9" stroke="#E4DEF0" stroke-width="15.0" stroke-linecap="butt"/>
+<path d="M1161.7 711.3 L1161.7 557.0" stroke="#E4DEF0" stroke-width="15.0" stroke-linecap="butt"/>
+<path d="M1186.1 402.7 L1186.1 160.8" stroke="#E4DEF0" stroke-width="15.0" stroke-linecap="butt"/>
+<path d="M1353.7 541.8 L1353.7 299.9" stroke="#E4DEF0" stroke-width="15.0" stroke-linecap="butt"/>
+<path d="M1544.2 557.0 L1544.2 541.8" stroke="#E4DEF0" stroke-width="15.0" stroke-linecap="butt"/>
+<rect x="850.8" y="160.8" width="914.4" height="914.4" fill="none" stroke="#8A72B4" stroke-width="2.4" stroke-dasharray="9 7"/>
+<path d="M850.8 230.3 L1018.4 230.3" stroke="#FCD866" stroke-width="4.5" stroke-dasharray="12 8"/>
+<circle cx="930.8" cy="480.8" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="929.5" cy="471.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="929.5" cy="463.9" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="929.5" cy="456.5" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="929.5" cy="449.0" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="929.5" cy="441.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="929.5" cy="433.9" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="929.5" cy="426.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="929.5" cy="419.0" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="929.5" cy="411.5" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="929.5" cy="403.9" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="929.5" cy="396.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="929.5" cy="388.9" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="929.5" cy="381.5" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="929.5" cy="374.0" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="929.5" cy="366.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="929.5" cy="358.9" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="929.5" cy="351.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="929.5" cy="344.0" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="929.5" cy="336.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="929.5" cy="328.9" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="929.5" cy="321.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="929.5" cy="313.9" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="929.5" cy="306.5" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="929.5" cy="298.9" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="929.5" cy="291.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="929.5" cy="283.9" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="937.1" cy="276.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="944.5" cy="269.0" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="952.0" cy="261.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="959.6" cy="253.9" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="967.0" cy="246.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="974.6" cy="238.9" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="982.0" cy="231.5" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="989.5" cy="223.9" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="997.0" cy="216.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1004.6" cy="208.9" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1012.0" cy="201.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1019.5" cy="208.9" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1027.0" cy="216.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1034.5" cy="223.9" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1042.0" cy="231.5" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1049.5" cy="238.9" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1057.0" cy="246.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1064.5" cy="253.9" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1072.0" cy="261.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1079.5" cy="269.0" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1087.0" cy="276.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1094.5" cy="283.9" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1102.0" cy="291.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1102.0" cy="298.9" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1102.0" cy="306.5" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1102.0" cy="313.9" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1102.0" cy="321.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1102.0" cy="328.9" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1102.0" cy="336.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1102.0" cy="344.0" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1102.0" cy="351.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1102.0" cy="358.9" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1102.0" cy="366.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1102.0" cy="374.0" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1102.0" cy="381.5" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1102.0" cy="388.9" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1102.0" cy="396.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1109.5" cy="403.9" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1117.0" cy="411.5" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1124.5" cy="419.0" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1132.0" cy="426.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1139.5" cy="433.9" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1147.0" cy="441.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1154.5" cy="449.0" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1162.0" cy="456.5" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1169.5" cy="456.5" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1177.1" cy="456.5" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1184.5" cy="456.5" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1192.0" cy="456.5" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1199.5" cy="456.5" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1207.0" cy="456.5" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1214.6" cy="449.0" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1222.0" cy="441.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1229.6" cy="433.9" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1237.0" cy="426.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1244.5" cy="419.0" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1252.1" cy="411.5" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1259.5" cy="403.9" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1267.1" cy="396.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1267.1" cy="388.9" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1267.1" cy="381.5" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1267.1" cy="374.0" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1267.1" cy="366.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1267.1" cy="358.9" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1267.1" cy="351.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1267.1" cy="344.0" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1267.1" cy="336.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1267.1" cy="328.9" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1267.1" cy="321.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1267.1" cy="313.9" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1267.1" cy="306.5" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1274.5" cy="298.9" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1282.0" cy="291.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1289.6" cy="283.9" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1297.0" cy="276.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1304.6" cy="269.0" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1312.0" cy="261.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1319.5" cy="253.9" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1327.1" cy="246.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1334.5" cy="246.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1342.1" cy="246.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1349.5" cy="246.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1357.0" cy="246.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1364.6" cy="246.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1372.1" cy="246.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1379.6" cy="253.9" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1387.1" cy="261.4" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<circle cx="1394.5" cy="269.0" r="2.2" fill="none" stroke="#8A8A96" stroke-width="1.1"/>
+<path d="M930.8 480.8 L967.0 246.4 L1004.6 208.9 L1012.0 201.4 L1019.5 208.9 L1102.0 313.9 L1132.0 426.4 L1162.0 456.5 L1207.0 456.5 L1267.1 396.4 L1304.6 269.0 L1327.1 246.4 L1372.1 246.4 L1379.6 253.9 L1387.1 261.4 L1394.5 269.0" fill="none" stroke="#7EAEE4" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" stroke-opacity="1.0"/>
+<path d="M930.8 480.8 L931.0 479.9 L931.2 478.1 L931.7 475.3 L932.2 471.7 L932.9 467.1 L933.8 461.6 L934.8 455.2 L935.9 447.9 L937.2 439.6 L938.6 430.5 L940.2 420.4 L941.9 409.4 L943.7 397.5 L945.7 384.7 L947.8 371.0 L950.1 356.3 L952.3 342.4 L954.6 329.3 L956.9 317.0 L959.2 305.4 L961.5 294.6 L963.8 284.6 L966.1 275.3 L968.4 266.8 L970.7 259.1 L973.0 252.1 L975.3 245.9 L977.6 240.5 L980.0 235.9 L982.3 232.0 L984.6 228.9 L987.0 226.5 L989.2 224.3 L991.3 222.2 L993.3 220.2 L995.2 218.3 L996.9 216.6 L998.6 214.9 L1000.1 213.4 L1001.5 212.0 L1002.8 210.7 L1004.0 209.5 L1005.0 208.5 L1006.0 207.5 L1006.8 206.7 L1007.5 206.0 L1008.1 205.4 L1008.5 205.0 L1009.0 204.5 L1009.4 204.1 L1009.8 203.7 L1010.1 203.4 L1010.4 203.1 L1010.7 202.8 L1011.0 202.5 L1011.2 202.3 L1011.4 202.1 L1011.6 201.9 L1011.8 201.7 L1011.9 201.6 L1012.0 201.5 L1012.0 201.5 L1012.0 201.4 L1012.1 201.5 L1012.1 201.5 L1012.2 201.6 L1012.3 201.7 L1012.5 201.9 L1012.7 202.1 L1012.9 202.3 L1013.1 202.5 L1013.4 202.8 L1013.7 203.1 L1014.0 203.4 L1014.3 203.7 L1014.7 204.1 L1015.1 204.5 L1015.6 205.0 L1016.0 205.4 L1016.8 206.3 L1017.9 207.5 L1019.2 209.1 L1020.8 211.1 L1022.8 213.5 L1025.0 216.2 L1027.5 219.4 L1030.3 222.9 L1033.4 226.8 L1036.8 231.1 L1040.5 235.7 L1044.5 240.8 L1048.8 246.2 L1053.4 252.0 L1058.2 258.2 L1063.4 264.7 L1068.3 271.3 L1073.1 277.9 L1077.6 284.6 L1082.0 291.3 L1086.1 298.0 L1090.0 304.7 L1093.7 311.5 L1097.2 318.3 L1100.6 325.1 L1103.7 332.0 L1106.6 338.9 L1109.3 345.8 L1111.7 352.7 L1114.0 359.7 L1116.1 366.7 L1118.0 373.7 L1119.9 380.4 L1121.7 386.8 L1123.6 392.9 L1125.5 398.6 L1127.4 404.0 L1129.2 409.1 L1131.1 413.9 L1133.0 418.4 L1134.9 422.5 L1136.7 426.3 L1138.6 429.8 L1140.5 433.0 L1142.4 435.8 L1144.2 438.3 L1146.1 440.5 L1148.0 442.4 L1149.9 444.1 L1151.9 445.8 L1154.0 447.3 L1156.1 448.7 L1158.2 450.0 L1160.5 451.2 L1162.8 452.2 L1165.1 453.2 L1167.5 454.0 L1170.0 454.7 L1172.5 455.3 L1175.1 455.7 L1177.7 456.1 L1180.4 456.3 L1183.1 456.5 L1186.0 456.5 L1188.8 456.2 L1191.8 455.7 L1194.7 455.0 L1197.8 454.1 L1200.9 452.9 L1204.1 451.5 L1207.3 449.9 L1210.6 448.0 L1213.9 445.9 L1217.3 443.6 L1220.8 441.0 L1224.3 438.2 L1227.9 435.1 L1231.5 431.8 L1235.2 428.3 L1238.9 424.6 L1242.6 420.6 L1246.2 416.3 L1249.6 411.7 L1253.0 406.9 L1256.4 401.9 L1259.6 396.5 L1262.7 390.9 L1265.8 385.1 L1268.7 379.0 L1271.6 372.6 L1274.4 365.9 L1277.1 359.0 L1279.7 351.8 L1282.2 344.4 L1284.6 336.7 L1287.0 328.7 L1289.3 321.2 L1291.5 314.0 L1293.7 307.3 L1295.8 300.9 L1297.8 295.0 L1299.8 289.5 L1301.7 284.4 L1303.6 279.7 L1305.4 275.5 L1307.2 271.6 L1308.9 268.1 L1310.5 265.1 L1312.1 262.4 L1313.6 260.2 L1315.1 258.4 L1316.5 257.0 L1318.0 255.7 L1319.6 254.4 L1321.2 253.3 L1323.0 252.3 L1324.9 251.3 L1326.8 250.4 L1328.8 249.6 L1330.9 248.9 L1333.1 248.3 L1335.4 247.8 L1337.8 247.3 L1340.2 247.0 L1342.8 246.7 L1345.4 246.5 L1348.1 246.4 L1351.0 246.4 L1353.6 246.5 L1356.1 246.5 L1358.5 246.6 L1360.7 246.7 L1362.8 246.9 L1364.8 247.1 L1366.5 247.3 L1368.2 247.5 L1369.7 247.8 L1371.0 248.1 L1372.2 248.4 L1373.3 248.7 L1374.2 249.1 L1375.0 249.5 L1375.6 250.0 L1376.0 250.4 L1376.5 250.9 L1377.0 251.4 L1377.4 251.8 L1377.9 252.3 L1378.4 252.8 L1378.8 253.2 L1379.3 253.7 L1379.8 254.2 L1380.3 254.7 L1380.7 255.1 L1381.2 255.6 L1381.7 256.1 L1382.1 256.5 L1382.6 257.0 L1383.1 257.5 L1383.5 257.9 L1384.0 258.4 L1384.5 258.9 L1384.9 259.3 L1385.4 259.8 L1385.9 260.3 L1386.3 260.7 L1386.8 261.2 L1387.3 261.7 L1387.8 262.2 L1388.2 262.6 L1388.7 263.1 L1389.2 263.6 L1389.6 264.0 L1390.1 264.5 L1390.6 265.0 L1391.0 265.4 L1391.5 265.9 L1391.9 266.3 L1392.3 266.7 L1392.6 267.0 L1392.9 267.3 L1393.2 267.6 L1393.5 267.9 L1393.7 268.1 L1393.9 268.3 L1394.1 268.5 L1394.3 268.7 L1394.4 268.8 L1394.5 268.9 L1394.5 268.9 L1394.5 269.0" fill="none" stroke="#8ACC8A" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round" stroke-opacity="1.0"/>
+<circle cx="967.0" cy="246.4" r="4" fill="#FCFCFC"/>
+<circle cx="1004.6" cy="208.9" r="4" fill="#FCFCFC"/>
+<circle cx="1012.0" cy="201.4" r="4" fill="#FCFCFC"/>
+<circle cx="1019.5" cy="208.9" r="4" fill="#FCFCFC"/>
+<circle cx="1102.0" cy="313.9" r="4" fill="#FCFCFC"/>
+<circle cx="1132.0" cy="426.4" r="4" fill="#FCFCFC"/>
+<circle cx="1162.0" cy="456.5" r="4" fill="#FCFCFC"/>
+<circle cx="1207.0" cy="456.5" r="4" fill="#FCFCFC"/>
+<circle cx="1267.1" cy="396.4" r="4" fill="#FCFCFC"/>
+<circle cx="1304.6" cy="269.0" r="4" fill="#FCFCFC"/>
+<circle cx="1327.1" cy="246.4" r="4" fill="#FCFCFC"/>
+<circle cx="1372.1" cy="246.4" r="4" fill="#FCFCFC"/>
+<circle cx="1379.6" cy="253.9" r="4" fill="#FCFCFC"/>
+<circle cx="1387.1" cy="261.4" r="4" fill="#FCFCFC"/>
+<g transform="translate(1012.0,201.4) scale(1.0)"><path d="M0 0 L-5 -12 A7 7 0 1 1 5 -12 Z" fill="#8ACC8A" stroke="#050505" stroke-width="1.4" stroke-linejoin="round"/><circle cx="0" cy="-16.5" r="2.8" fill="#050505"/></g>
+<text x="856.8" y="178.3" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="11.5" font-weight="700" fill="#8ACC8A" text-anchor="start">pin band 0.18–0.30 m</text>
+<g transform="translate(930.8,480.8)"><path d="M-8 -8 L8 8 M8 -8 L-8 8" stroke="#FCFCFC" stroke-width="2.2"/><circle cx="-8" cy="-8" r="5" fill="#050505" stroke="#FCFCFC" stroke-width="1.6"/><circle cx="8" cy="-8" r="5" fill="#050505" stroke="#FCFCFC" stroke-width="1.6"/><circle cx="-8" cy="8" r="5" fill="#050505" stroke="#FCFCFC" stroke-width="1.6"/><circle cx="8" cy="8" r="5" fill="#050505" stroke="#FCFCFC" stroke-width="1.6"/></g>
+<text x="948.8" y="485.8" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="12.5" font-weight="400" fill="#CCC0E4" text-anchor="start">launch</text>
+<circle cx="876.0" cy="230.3" r="12" fill="#FCD866"/>
+<text x="876.0" y="235.4" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="14.399999999999999" font-weight="700" fill="#1A1A1A" text-anchor="middle">1</text>
+<text x="858.0" y="525.0" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="11.5" font-weight="400" fill="#A99CC6" text-anchor="start">first corridor</text>
+<text x="1035.0" y="525.0" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="11.5" font-weight="400" fill="#A99CC6" text-anchor="start">maze</text>
+<text x="1188.0" y="525.0" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="11.5" font-weight="400" fill="#A99CC6" text-anchor="end">to gate A →</text>
+</g>
+<text x="1243.0" y="170.0" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="15" font-weight="700" fill="#8ACC8A" text-anchor="start">1 · gate overshoot pinning</text>
+<text x="1243.0" y="198.0" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="14.5" font-weight="400" fill="#CCC0E4" text-anchor="start">A* targets a band 0.18–0.30 m past</text>
+<text x="1243.0" y="219.0" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="14.5" font-weight="400" fill="#CCC0E4" text-anchor="start">the line, at the end nearest the</text>
+<text x="1243.0" y="240.0" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="14.5" font-weight="400" fill="#CCC0E4" text-anchor="start">next gate, and pins that vertex.</text>
+<text x="1243.0" y="282.0" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="15" font-weight="700" fill="#7EAEE4" text-anchor="start">2 · line-of-sight shortcut</text>
+<text x="1243.0" y="310.0" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="14.5" font-weight="400" fill="#CCC0E4" text-anchor="start">115 grid cells → 16 vertices,</text>
+<text x="1243.0" y="331.0" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="14.5" font-weight="400" fill="#CCC0E4" text-anchor="start">keeping wall clearance and</text>
+<text x="1243.0" y="352.0" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="14.5" font-weight="400" fill="#CCC0E4" text-anchor="start">never skipping the pin.</text>
+<rect x="1243.0" y="386.0" width="249.0" height="29.4" rx="14.7" fill="#8ACC8A"/>
+<text x="1367.5" y="405.7" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="14" font-weight="700" fill="#1A1A1A" text-anchor="middle">crosses the line by 19 cm</text>
+<text x="1243.0" y="440.0" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="14" font-weight="400" fill="#CCC0E4" text-anchor="start">margin to spare if MPPI rounds it</text>
+<circle cx="1247.0" cy="500" r="3" fill="none" stroke="#8A8A96" stroke-width="1.2"/>
+<circle cx="1258.0" cy="500" r="3" fill="none" stroke="#8A8A96" stroke-width="1.2"/>
+<circle cx="1269.0" cy="500" r="3" fill="none" stroke="#8A8A96" stroke-width="1.2"/>
+<text x="1285.0" y="504.5" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="13" font-weight="400" fill="#CCC0E4" text-anchor="start">A* cells (5 cm)</text>
+<path d="M1243.0 526 h30" stroke="#7EAEE4" stroke-width="2.2" stroke-linecap="round"/>
+<text x="1285.0" y="530.5" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="13" font-weight="400" fill="#CCC0E4" text-anchor="start">shortcut path</text>
+<path d="M1243.0 552 h30" stroke="#8ACC8A" stroke-width="4.5" stroke-linecap="round"/>
+<text x="1285.0" y="556.5" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="13" font-weight="400" fill="#CCC0E4" text-anchor="start">smoothed path</text>
+<path d="M1243.0 578 h30" stroke="#E47266" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="4 4"/>
+<text x="1285.0" y="582.5" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="13" font-weight="400" fill="#CCC0E4" text-anchor="start">scoring line (+15 cm)</text>
+<path d="M1243.0 604 h30" stroke="#FCD866" stroke-width="4.5" stroke-linecap="round" stroke-dasharray="12 8"/>
+<text x="1285.0" y="608.5" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="13" font-weight="400" fill="#CCC0E4" text-anchor="start">checkpoint 1 (corridor_end)</text>
+<text x="1580.0" y="664.0" font-family="'DejaVu Sans', Verdana, sans-serif" font-size="12" font-weight="400" fill="#A99CC6" text-anchor="end">real course walls at flight height · paths from a Python port of the planner's A*, shortcut and Chaikin steps</text>
+</svg>
