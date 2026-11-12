@@ -43,14 +43,23 @@ Even with VIO and optical flow, odometry still picks up yaw and scale drift over
 
 At each keyframe, iSAM2 also updates a local 3D obstacle grid so the planner can react to shifted walls and unmodeled obstacles.
 
-<figure
-  class="figure rerun-player"
-  data-rrd="/media/rerun/isam2.rrd"
-  data-rbl="/media/rerun/dronehack_isam2.rbl"
-  data-timeline="sim_time"
-  data-start-nanos="400000000"
-  aria-label="Classical Approach localization Rerun viewer"
-></figure>
+<div class="classical-demo figure">
+  <figure
+    class="rerun-player"
+    data-rrd="/media/rerun/isam2.rrd"
+    data-rbl="/media/rerun/dronehack_isam2.rbl"
+    data-timeline="sim_time"
+    data-start-nanos="400000000"
+    data-video="/media/clip-3.mp4"
+    data-poster="/media/classical-localization.png"
+    data-video-label="Classical Approach localization video"
+    aria-label="Classical Approach localization Rerun viewer"
+  ></figure>
+  <p class="desktop-viz-hint" hidden>
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+    <span>Open on desktop to explore the interactive 3D Rerun visualizer</span>
+  </p>
+</div>
 
 ### Local Planner
 
@@ -71,14 +80,23 @@ Before commands go out to the flight controller, we run a couple final checks:
 - **Perimeter barrier:** Since the outer arena nets are basically invisible to stereo depth, a **Control Barrier Function (CBF)** smoothly clamps outward velocity whenever the drone gets close to the boundary in the map frame.
 - **Stuck detection & muxing:** If a corridor is completely blocked and rollout costs spike for several ticks, MPPI holds position and triggers a global replan. A lightweight multiplexer sits at the end of the pipeline to switch cleanly between MPPI and our RL policy while watching for stale data or VIO dropouts.
 
-<figure
-  class="figure rerun-player"
-  data-rrd="/media/rerun/mppi.rrd"
-  data-rbl="/media/rerun/mppi_blueprint.rbl"
-  data-timeline="time"
-  data-start-nanos="5200000000"
-  aria-label="Classical Approach planning Rerun viewer"
-></figure>
+<div class="classical-demo figure">
+  <figure
+    class="rerun-player"
+    data-rrd="/media/rerun/mppi.rrd"
+    data-rbl="/media/rerun/mppi_blueprint.rbl"
+    data-timeline="time"
+    data-start-nanos="5200000000"
+    data-video="/media/clip-4.mp4"
+    data-poster="/media/classical-planning.png"
+    data-video-label="Classical Approach planning video"
+    aria-label="Classical Approach planning Rerun viewer"
+  ></figure>
+  <p class="desktop-viz-hint" hidden>
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+    <span>Open on desktop to explore the interactive 3D Rerun visualizer</span>
+  </p>
+</div>
 
 ### Results
 
