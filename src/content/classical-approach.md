@@ -81,6 +81,8 @@ This prior is fed into a 2D grid A\* planner at flight altitude with a corridor-
 
 ### Estimation Stack
 
+<div class="pair"><div>
+
 #### The problem: VIO drifts
 
 We run cuVSLAM for VIO on the OAK-D camera's stereo pair, which gives a good estimate of the drone's position as it flies. But:
@@ -90,13 +92,17 @@ We run cuVSLAM for VIO on the OAK-D camera's stereo pair, which gives a good est
 
 Left uncorrected, the error adds up, and by the end of the course we would likely have crashed.
 
-#### The fix: a factor graph with the CAD map as a prior
+</div><div>
+
+#### The fix: a factor graph with a CAD prior
 
 We localize against the given CAD model, treating it as a prior rather than ground truth. As the drone flies, its poses and depth point clouds feed an iSAM2 factor graph that fuses:
 
 - PX4's EKF estimate (IMU, onboard rangefinder and VIO)
 - Point-to-plane depth ICP against the previous keyframe
 - Depth ICP against older keyframes the drone flies near (within 1.5 m)
+
+</div></div>
 
 This makes full use of the prior map while staying robust to a course that doesn't match it. When the depth point cloud sees an obstacle that isn't in the map, or a wall that has shifted, iSAM2 corrects its estimates. We get:
 
