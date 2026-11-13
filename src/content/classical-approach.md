@@ -81,19 +81,15 @@ This prior is fed into a 2D grid A\* planner at flight altitude with a corridor-
 
 ### Estimation Stack
 
-Raw IMU dead-reckoning cannot be trusted after a couple of seconds due to vibrations and sensor inaccuracy. At the flight-controller level, we fuse cuVSLAM (30 Hz stereo VIO from the OAK-D S2's 640×400 monochrome pair) along with a downward optical flow sensor and rangefinder into PX4's EKF2.
+To start, we run cuVSLAM for VIO on the OAK-D camera's stereo pair. This gives us a good estimate of the drone's position as we fly the course. However, VIO is prone to drift, and we may not know our initial pose exactly. Left uncorrected, the drift adds up and by the end of the course we would likely have crashed.
 
-Even with VIO and optical flow, odometry still accumulates yaw and scale drift over a 15 m maze. To give the planner a locally consistent world frame without shocking EKF2 with violent pose updates, we feed our vehicle odometry and a 15 Hz stereo depth stream into a local planning-only iSAM2 factor graph.
+To fix this, we perform robust localization using the given CAD model as a prior (but not as ground truth!). As the drone flies, its poses and depth point clouds are fed into an iSAM2 factor graph. The graph fuses PX4's EKF estimate (IMU, onboard rangefinder and VIO) with point-to-plane depth ICP factors against the previous keyframe and any older keyframes the drone flies near (within 1.5 m).
 
-- A new keyframe is spawned every 0.25 m, 10 degrees turned, or 0.5 s of motion. The graph fuses PX4 odometry factors, attitude priors, body-frame velocity factors (preventing yaw drift from leaking into velocity), and point-to-plane depth ICP factors against the previous keyframe and older keyframes the drone may happen to fly near (within 1.5 m).
-- Because the floor often drops out of the camera's vertical FOV at flight height, vertical walls alone leave altitude unobservable to depth ICP. We regularize unobserved axes and down-weight vertical information by 50× so iSAM2 automatically trusts PX4's rangefinder-backed altitude.
-- At each keyframe, iSAM2 updates a local 3D obstacle grid along with the corrected pose and velocity, allowing the planner to react to shifted walls and unmodeled obstacles.
+Formulating the problem as a factor graph lets us make full use of the prior map while staying robust to changes in the course. When the depth point cloud sees an obstacle that isn't in the map, or a wall that has shifted, iSAM2 corrects its estimates. That gives us an updated map that matches reality (more on how we use it later) and keeps localization accurate.
 
 #### Demo
 
-Below we demonstrate the functionality of the iSAM2 estimation stage. We provide a prebaked ESDF map of the arena from the CAD model as a prior for the factor graph. At runtime, we provide synthetic depth information obtained from a pre-recorded point cloud the organizers gave us containing the real-world arena. As the drone flies through the scene, blue voxels (precomputed occupancies) are converted into green voxels (free space) or orange voxels (obstacles).
-
-> As the drone flies, we also compute simulated PX4 and VIO + standard ICP odometry drift alongside the corrected iSAM2 odometry to benchmark against the ground-truth trajectory
+Below we demonstrate our state estimation pipeline. The factor graph is given the arena's CAD model as a prior, while the real course (ghost) is kept hidden and appears only through the depth observations. As the drone flies along the ground-truth path (green), the prior map (blue) is updated as walls shift and new obstacles appear (orange). Our estimated path (blue) stays close to ground truth, while raw VIO (red) and naive localization (purple) drift significantly.
 
 <div class="classical-demo figure">
   <figure
