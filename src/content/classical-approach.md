@@ -81,15 +81,35 @@ This prior is fed into a 2D grid A\* planner at flight altitude with a corridor-
 
 ### Estimation Stack
 
-To start, we run cuVSLAM for VIO on the OAK-D camera's stereo pair. This gives us a good estimate of the drone's position as we fly the course. However, VIO is prone to drift, and we may not know our initial pose exactly. Left uncorrected, the drift adds up and by the end of the course we would likely have crashed.
+#### The problem: VIO drifts
 
-To fix this, we perform robust localization using the given CAD model as a prior (but not as ground truth!). As the drone flies, its poses and depth point clouds are fed into an iSAM2 factor graph. The graph fuses PX4's EKF estimate (IMU, onboard rangefinder and VIO) with point-to-plane depth ICP factors against the previous keyframe and any older keyframes the drone flies near (within 1.5 m).
+We run cuVSLAM for VIO on the OAK-D camera's stereo pair, which gives a good estimate of the drone's position as it flies. But:
 
-Formulating the problem as a factor graph lets us make full use of the prior map while staying robust to changes in the course. When the depth point cloud sees an obstacle that isn't in the map, or a wall that has shifted, iSAM2 corrects its estimates. That gives us an updated map that matches reality (more on how we use it later) and keeps localization accurate.
+- VIO drifts over time.
+- We may not know our initial pose exactly.
+
+Left uncorrected, the error adds up, and by the end of the course we would likely have crashed.
+
+#### The fix: a factor graph with the CAD map as a prior
+
+We localize against the given CAD model, treating it as a prior rather than ground truth. As the drone flies, its poses and depth point clouds feed an iSAM2 factor graph that fuses:
+
+- PX4's EKF estimate (IMU, onboard rangefinder and VIO)
+- Point-to-plane depth ICP against the previous keyframe
+- Depth ICP against older keyframes the drone flies near (within 1.5 m)
+
+This makes full use of the prior map while staying robust to a course that doesn't match it. When the depth point cloud sees an obstacle that isn't in the map, or a wall that has shifted, iSAM2 corrects its estimates. We get:
+
+- Accurate localization, even as VIO drifts
+- An updated map that matches reality (more on how we use it later)
 
 #### Demo
 
-Below we demonstrate our state estimation pipeline. The factor graph is given the arena's CAD model as a prior, while the real course (ghost) is kept hidden and appears only through the depth observations. As the drone flies along the ground-truth path (green), the prior map (blue) is updated as walls shift and new obstacles appear (orange). Our estimated path (blue) stays close to ground truth, while raw VIO (red) and naive localization (purple) drift significantly.
+The factor graph is given the arena's CAD model as a prior. The real course (ghost) stays hidden and shows up only through the depth observations.
+
+- As the drone flies the ground-truth path (green), the prior map (blue) updates as walls shift and new obstacles appear (orange).
+- Our estimated path (blue) stays close to ground truth.
+- Raw VIO (red) and naive localization (purple) drift significantly.
 
 <div class="classical-demo figure">
   <figure
