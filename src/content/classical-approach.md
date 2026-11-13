@@ -94,8 +94,7 @@ Even with VIO and optical flow, odometry still accumulates yaw and scale drift o
 <div class="classical-demo figure">
   <figure
     class="rerun-player"
-    data-rrd="/media/rerun/isam2.rrd"
-    data-rbl="/media/rerun/dronehack_isam2.rbl"
+    data-rrd="/media/rerun/isam2_demo.rrd"
     data-timeline="sim_time"
     data-start-nanos="400000000"
     data-video="/media/clip-3.mp4"
@@ -106,14 +105,17 @@ Even with VIO and optical flow, odometry still accumulates yaw and scale drift o
   <div class="viz-legend" aria-label="iSAM2 visualization legend">
     <div class="viz-legend-row">
       <span class="viz-group-label">Trajectories</span>
-      <span class="viz-item"><i class="viz-swatch viz-line" style="--c: #e63c3c"></i><strong>PX4 Odom</strong> (drifting VIO)</span>
-      <span class="viz-item"><i class="viz-swatch viz-line" style="--c: #3cdc3c"></i><strong>Ground Truth</strong></span>
-      <span class="viz-item"><i class="viz-swatch viz-line" style="--c: #468cff"></i><strong>iSAM2 Update</strong> (smoothed)</span>
+      <span class="viz-item"><i class="viz-swatch viz-line" style="--c: #14af41"></i><strong>Ground Truth</strong></span>
+      <span class="viz-item"><i class="viz-swatch viz-line" style="--c: #e12d32"></i><strong>PX4 Odom</strong> (drifting VIO)</span>
+      <span class="viz-item"><i class="viz-swatch viz-line" style="--c: #a52dd7"></i><strong>VIO + Standard ICP</strong> (no factor graph)</span>
+      <span class="viz-item"><i class="viz-swatch viz-line" style="--c: #195feb"></i><strong>iSAM2</strong> (factor graph + CAD prior)</span>
     </div>
     <div class="viz-legend-row">
-      <span class="viz-group-label">Voxels</span>
-      <span class="viz-item"><i class="viz-swatch viz-box" style="--c: #3b82f6"></i><strong>Blue Map:</strong> full global depth map aligned at smoothed keyframe poses</span>
-      <span class="viz-item"><i class="viz-swatch viz-box" style="--c: #ff8c00"></i><strong>Orange Obstacles:</strong> active local voxel window</span>
+      <span class="viz-group-label">Scene &amp; iSAM2 Map</span>
+      <span class="viz-item"><i class="viz-swatch viz-box" style="--c: #2d82d7"></i><strong>Priors:</strong> prebaked CAD obstacles retained by iSAM2</span>
+      <span class="viz-item"><i class="viz-swatch viz-box" style="--c: #ff8719"></i><strong>New / Updated Obstacles:</strong> shifted &amp; unmodeled walls discovered online</span>
+      <span class="viz-item"><i class="viz-swatch viz-box" style="--c: #73ebb9"></i><strong>Cleared Empty Space:</strong> stale CAD priors carved away by depth rays</span>
+      <span class="viz-item"><i class="viz-swatch viz-box" style="--c: #aac3dc"></i><strong>Real Course Ghost:</strong> translucent solid rescan geometry (reference)</span>
     </div>
   </div>
   <p class="desktop-viz-hint" hidden>
