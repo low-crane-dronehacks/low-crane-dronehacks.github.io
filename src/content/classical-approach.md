@@ -93,7 +93,7 @@ Even with VIO and optical flow, odometry still accumulates yaw and scale drift o
 
 Below we demonstrate the functionality of the iSAM2 estimation stage. We provide a prebaked ESDF map of the arena from the CAD model as a prior for the factor graph. At runtime, we provide synthetic depth information obtained from a pre-recorded point cloud the organizers gave us containing the real-world arena. As the drone flies through the scene, blue voxels (precomputed occupancies) are converted into green voxels (free space) or orange voxels (obstacles).
 
-> As the drone flies, we also compute simulated PX4 and VIO + standard ICP odometry drift alongside the corrected iSAM2 odometry to benchmark against the ground-truth trajectory 
+> As the drone flies, we also compute simulated PX4 and VIO + standard ICP odometry drift alongside the corrected iSAM2 odometry to benchmark against the ground-truth trajectory
 
 <div class="classical-demo figure">
   <figure
