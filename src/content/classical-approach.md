@@ -186,6 +186,45 @@ In this demo, we feed the MPPI planner the reference trajectory and privileged o
 
 ### Results
 
-Well, we don't really have any hardware flight clips for this one. With limited flight slots and the clock ticking down, we put all our chips on our zero-shot RL policy and never got to fly the classical stack on the real drone, even though it handled our Gazebo simulation and unmodeled-obstacle tests really well.
+Well, we don't really have any hardware flight clips for this one. With limited flight slots and the clock ticking down, we put all our chips on our zero-shot RL policy and never got to fly the classical stack on the real drone.
 
-At least the graphs look pretty.
+Below is a screen recording of the full classical system running the full competition course closed-loop. iSAM2 adapts the pre-baked CAD prior online, carving stale walls and replanning when corridors or window heights differ from CAD.
+
+<div class="classical-demo figure">
+  <figure
+    class="rerun-player"
+    data-rrd="/media/rerun/classical_demo.rrd"
+    data-timeline="time"
+    data-video="/media/classical.mp4"
+    data-video-label="Classical Approach full system video"
+    aria-label="Classical Approach full system Rerun viewer"
+  ></figure>
+  <div class="viz-legend" aria-label="Classical autonomy and iSAM2 visualization legend">
+    <div class="viz-legend-row">
+      <span class="viz-group-label">Trajectories</span>
+      <span class="viz-item"><i class="viz-swatch viz-line" style="--c: #14af41"></i><strong>Ground Truth</strong> (QuadPlant)</span>
+      <span class="viz-item"><i class="viz-swatch viz-line" style="--c: #195feb"></i><strong>iSAM2 Estimate</strong> (drift-corrected)</span>
+      <span class="viz-item"><i class="viz-swatch viz-line" style="--c: #00ff87"></i><strong>A* Global Path</strong> (live replanning)</span>
+      <span class="viz-item"><i class="viz-swatch viz-line" style="--c: #00bfff"></i><strong>Local Horizon &amp; Vel Cmd</strong></span>
+    </div>
+    <div class="viz-legend-row">
+      <span class="viz-group-label">MPPI &amp; Events</span>
+      <span class="viz-item"><i class="viz-swatch viz-line" style="--c: #1a8cff"></i><strong>MPPI Optimal Rollout</strong></span>
+      <span class="viz-item"><i class="viz-swatch viz-line" style="--c: #38d91a"></i><strong>MPPI Rollout Fan</strong> (green = low cost &rarr; red = high cost)</span>
+      <span class="viz-item"><i class="viz-swatch viz-line" style="--c: #ff8c00"></i><strong>Predicted Heading</strong></span>
+      <span class="viz-item"><i class="viz-swatch viz-box" style="--c: #ff374b"></i><strong>Blocked-Corridor Replan Trigger</strong></span>
+      <span class="viz-item"><i class="viz-swatch viz-ring" style="--c: #ffd700"></i><strong>Drone Collision Ring</strong> (0.21 m)</span>
+    </div>
+    <div class="viz-legend-row">
+      <span class="viz-group-label">Arena &amp; Voxels</span>
+      <span class="viz-item"><i class="viz-swatch viz-box" style="--c: #2d82d7"></i><strong>Blue Priors:</strong> remaining uncarved CAD obstacle voxels</span>
+      <span class="viz-item"><i class="viz-swatch viz-box" style="--c: #ff8719"></i><strong>Orange Obstacles:</strong> newly observed / shifted scan walls</span>
+      <span class="viz-item"><i class="viz-swatch viz-box" style="--c: #73ebb9"></i><strong>Mint Volume:</strong> stale CAD prior carved as free space</span>
+      <span class="viz-item"><i class="viz-swatch viz-box" style="--c: #aac3dc"></i><strong>Ghosted Meshes &amp; RGB Cloud:</strong> physical <code>.ply</code> arena scan</span>
+    </div>
+  </div>
+  <p class="desktop-viz-hint" hidden>
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+    <span>Open on desktop to explore the interactive 3D Rerun visualizer</span>
+  </p>
+</div>
