@@ -89,7 +89,11 @@ Even with VIO and optical flow, odometry still accumulates yaw and scale drift o
 - Because the floor often drops out of the camera's vertical FOV at flight height, vertical walls alone leave altitude unobservable to depth ICP. We regularize unobserved axes and down-weight vertical information by 50× so iSAM2 automatically trusts PX4's rangefinder-backed altitude.
 - At each keyframe, iSAM2 updates a local 3D obstacle grid along with the corrected pose and velocity, allowing the planner to react to shifted walls and unmodeled obstacles.
 
-> In the demo below, we give the CAD model of the course as a prior for iSAM2. On a real deployment, iSAM2 can update its map to generalize to a new arena arrangement. This solution cuts final position and heading error by ~2.5× with keyframe updates taking about 12–20 ms on our course-scan benchmark.
+#### Demo
+
+Below we demonstrate the functionality of the iSAM2 estimation stage. We provide a prebaked ESDF map of the arena from the CAD model as a prior for the factor graph. At runtime, we provide synthetic depth information obtained from a pre-recorded point cloud the organizers gave us containing the real-world arena. As the drone flies through the scene, blue voxels (precomputed occupancies) are converted into green voxels (free space) or orange voxels (obstacles).
+
+> As the drone flies, we also compute simulated PX4 and VIO + standard ICP odometry drift alongside the corrected iSAM2 odometry to benchmark against the ground-truth trajectory 
 
 <div class="classical-demo figure">
   <figure
@@ -151,6 +155,10 @@ Before any commands go out to the flight controller, we run a couple of final ch
 - **Map-frame Exponential CBF**: An Exponential Control Barrier Function transforms the commanded velocity into the arena map frame and clamps outward velocity whenever the drone approaches the outer net.
 - **Blocked-path replan trigger**: If something blocks the corridor centerline with no clearance, or if the minimum rollout cost spikes for 6 MPPI ticks, we command an immediate hold and trigger a global A\* replan.
 
+#### Demo
+
+In this demo, we feed the MPPI planner the reference trajectory and privileged odometry and place arbitrary obstacles in the flight path to demonstrate obstacle avoidance. As the drone flies, you can watch the MPPI controller roll out and sample collision-free paths while still maintaining the mission trajectory.
+
 <div class="classical-demo figure">
   <figure
     class="rerun-player"
@@ -175,8 +183,6 @@ Before any commands go out to the flight controller, we run a couple of final ch
     <span>Open on desktop to explore the interactive 3D Rerun visualizer</span>
   </p>
 </div>
-
-> In this demo, we feed the MPPI planner the reference trajectory directly instead of the transformed trajectory under iSAM2's localization to demonstrate its unmodeled-obstacle avoidance abilities.
 
 ### Results
 
