@@ -34,9 +34,9 @@ For our classical approach, we wanted a stack that wouldn't let the drone drift 
 
 ### Global Planner
 
-Since the competition provides the static layout ahead of time, we pre-bake a 3D ground-truth signed distance map with all arena features: walls, outer nets, gates (ordered checkpoint sequences), +5 pt bonus window, and landing pad.
+Since the competition provides the static layout ahead of time, we pre-bake a 3D ground-truth signed distance map with all arena features: walls, outer nets, gates (ordered checkpoint sequence), the +5 pt bonus window, and the landing pad.
 
-This prior is fed into a 2D grid A\* planner at flight altitude with a corridor-centering cost heuristic which pulls paths towards the middle of passages. The raw A\* output is conservative and jagged, so we run a two-stage **geometric** and **kinodynamic optimization pass** to build a smooth, time-indexed reference trajectory:
+This prior is fed into a 2D grid A\* planner at flight altitude with a corridor-centering cost heuristic that pulls paths toward the middle of passages. The raw A\* output is conservative and jagged, so we run a two-stage **geometric** and **kinodynamic optimization pass** to build a smooth, time-indexed reference trajectory:
 
 #### 1. Geometric Optimization
 
@@ -46,7 +46,7 @@ This prior is fed into a 2D grid A\* planner at flight altitude with a corridor-
     <div class="media-frame dark-frame">
       <img
         src="/media/planner-pinning.png"
-        alt="On the real course, aiming at checkpoint 1's centre rounds the U-turn off 5 cm before the line; the planner's pinned vertex 0.20 m past it clears the line by 19 cm"
+        alt="On the real course, aiming at checkpoint 1's center rounds the U-turn off 5 cm before the line; the planner's pinned vertex 0.20 m past it clears the line by 19 cm"
         width="3200"
         height="1360"
         loading="lazy"
@@ -54,8 +54,8 @@ This prior is fed into a 2D grid A\* planner at flight altitude with a corridor-
     </div>
   </figure>
 
-- **Line of sight short-cutting**: We remove redundant collinear waypoints while respecting wall clearance (we keep the redundancy the overshoot pinning adds for above reasons.)
-- **Chaikin corner-cutting**: We run 4 iterations of subdivisions to turn discrete waypoint turns into smoother, continuous curves (keeping gate crossings locked for safety)
+- **Line-of-sight shortcutting**: We remove redundant collinear waypoints while respecting wall clearance (we keep the redundancy the overshoot pinning adds for the reason above).
+- **Chaikin corner-cutting**: We run 4 subdivision iterations to turn discrete waypoint turns into smoother, continuous curves (keeping gate crossings locked for safety).
 
   <figure class="figure">
     <div class="media-frame dark-frame">
@@ -69,27 +69,27 @@ This prior is fed into a 2D grid A\* planner at flight altitude with a corridor-
     </div>
   </figure>
 
-- **Uniform arc-length resampling**: Finally, we resample the curve at uniform 2cm intervals so curvature and velocity profiles are smooth and integrable by the dynamics pass, up next.
+- **Uniform arc-length resampling**: Finally, we resample the curve at uniform 2 cm intervals so curvature and velocity profiles are smooth and integrable by the dynamics pass, up next.
 
 #### 2. Kinodynamic Optimization
 
-- **Curvature & yaw-rate capping**: We impose a cruise speed limit (1.5 m/s), a centripetal / lateral acceleration limit (3.0 m/s^2), a yaw-rate limit (45 deg/s) so the forward depth camera never lags behind the direction of travel and clamp the speed at gate crossing waypoints.
-- **Forward pass**: (0 -> n - 1) propagates thrust limits forward. It ensures that after hovering or coming out of a slow corner, we clamp the trajectory to have physically reachable speeds.
-- **Backward pass**: (n-1 -> 0) propagates braking limits backward. If a waypoint requires the drone to slow down to 0.4 m/s for a hairpin turn or final stop, the backward pass starts braking well in advance.
+- **Curvature & yaw-rate capping**: We impose a cruise speed limit (1.5 m/s), a centripetal / lateral acceleration limit (3.0 m/s²), and a yaw-rate limit (45 deg/s)—so the forward depth camera never lags behind the direction of travel—and clamp the speed at gate-crossing waypoints.
+- **Forward pass**: Runs from 0 to n - 1, propagating thrust limits forward. It ensures that after hovering or coming out of a slow corner, we clamp the trajectory to have physically reachable speeds.
+- **Backward pass**: Runs from n - 1 to 0, propagating braking limits backward. If a waypoint requires the drone to slow down to 0.4 m/s for a hairpin turn or final stop, the backward pass starts braking well in advance.
 
 > If the local planner detects an impassable, unmodeled obstacle blocking a corridor in flight, it fires a replan trigger with the obstacle's coordinates; A\* carves that region out of the map and splices a new global route on the fly from the drone's current velocity.
 
 ### Estimation Stack
 
-Raw IMU dead-reckoning cannot be trusted after a couple seconds due to vibrations and sensor inaccuracy. At the flight controller level, we fuse **cuVSLAM** (30 Hz stereo VIO from the OAK-D S2's 640x400 monochrome pair) along with a downward **optical flow sensor** and **rangefinder** into PX4's EKF2.
+Raw IMU dead-reckoning cannot be trusted after a couple of seconds due to vibrations and sensor inaccuracy. At the flight-controller level, we fuse **cuVSLAM** (30 Hz stereo VIO from the OAK-D S2's 640×400 monochrome pair) along with a downward **optical flow sensor** and **rangefinder** into PX4's EKF2.
 
-Even with VIO and optical flow, odometry still accumulates yaw and scale drift over a 15 m maze. To give the planner a locally consistent world frame without shocking EKF2 with violent pose updates, we feed our vehicle odometry and a 15 Hz stereo depth stream into a **local planning-only GTSAM iSAM2 factor graph**.
+Even with VIO and optical flow, odometry still accumulates yaw and scale drift over a 15 m maze. To give the planner a locally consistent world frame without shocking EKF2 with violent pose updates, we feed our vehicle odometry and a 15 Hz stereo depth stream into a **local planning-only iSAM2 factor graph**.
 
-- A new keyframe is spawned every **0.25m, 10 degrees turned, or 0.5s of motion**. The graph fuses PX4 odometry factors, attitude priors, body-frame velocity factors (prevents yaw drift from leaking into velocity), and **point-to-plane depth ICP** factors against the previous keyframe and older keyframes the drone may happen to fly near (within 1.5 m).
-- Because the floor often drops out of the camera's vertical FOV at flight height, vertical walls alone leave altitude unobservable to depth ICP. We regularize unobserved axes and down-weight vertical information by 50x so iSAM2 automatically trusts PX4's rangefinder-backed altitude.
-- At each keyframe, iSAM2 also updates a local 3D obstacle grid so the planner can react to shifted walls and unmodeled obstacles.
+- A new keyframe is spawned every **0.25 m, 10 degrees turned, or 0.5 s of motion**. The graph fuses PX4 odometry factors, attitude priors, body-frame velocity factors (preventing yaw drift from leaking into velocity), and **point-to-plane depth ICP** factors against the previous keyframe and older keyframes the drone may happen to fly near (within 1.5 m).
+- Because the floor often drops out of the camera's vertical FOV at flight height, vertical walls alone leave altitude unobservable to depth ICP. We regularize unobserved axes and down-weight vertical information by 50× so iSAM2 automatically trusts PX4's rangefinder-backed altitude.
+- At each keyframe, iSAM2 updates a local 3D obstacle grid along with the corrected pose and velocity, allowing the planner to react to shifted walls and unmodeled obstacles.
 
-> This solution cuts final position and heading error by around ~2.5x with keyframe updates taking about 12-20ms on our course-scan benchmark.
+> In the demo below, we give the CAD model of the course as a prior for iSAM2. On a real deployment, iSAM2 can update its map to generalize to a new arena arrangement. This solution cuts final position and heading error by ~2.5× with keyframe updates taking about 12–20 ms on our course-scan benchmark.
 
 <div class="classical-demo figure">
   <figure
@@ -113,7 +113,7 @@ Even with VIO and optical flow, odometry still accumulates yaw and scale drift o
     <div class="viz-legend-row">
       <span class="viz-group-label">Voxels</span>
       <span class="viz-item"><i class="viz-swatch viz-box" style="--c: #3b82f6"></i><strong>Blue Map:</strong> full global depth map aligned at smoothed keyframe poses</span>
-      <span class="viz-item"><i class="viz-swatch viz-box" style="--c: #ff8c00"></i><strong>Orange Obstacles:</strong> active local voxel window fed to MPPI</span>
+      <span class="viz-item"><i class="viz-swatch viz-box" style="--c: #ff8c00"></i><strong>Orange Obstacles:</strong> active local voxel window</span>
     </div>
   </div>
   <p class="desktop-viz-hint" hidden>
@@ -124,14 +124,14 @@ Even with VIO and optical flow, odometry still accumulates yaw and scale drift o
 
 ### Local Planner
 
-Tracking a global path through 0.5m corridors when walls are slightly shifted from the prior map requires more than a simple PID carrot-follower. We wrote a Model Predictive Path Integral (MPPI) controller in C++ running at 50 Hz on the CPU with OpenMP to optimize velocity and yaw-rate commands simultaneously.
+Tracking a global path through 0.5 m corridors when walls are slightly shifted from the prior map requires more than a simple PID carrot-follower. We wrote a Model Predictive Path Integral (MPPI) controller in C++ running at 50 Hz on the CPU with OpenMP to optimize velocity and yaw-rate commands simultaneously.
 
 #### Rolling out the actual drone, not a point mass
 
-Every 20ms, MPPI warm-starts from its previous solution and samples **1,024 noisy control sequences** over an **0.8s** horizon (16 steps x 0.05 s) in the local path-tangent frame.
-Instead of stepping a kinematic point mass, each rollout forward-simulates a **1.35 kg deadcat quadrotor with 30 ms of motor lag, aerodynamic drag, and PX4's cascaded PID velocity controller** (uses a similar dynamics model as the RL approach).
+Every 20 ms, MPPI warm-starts from its previous solution and samples **1,024 noisy control sequences** over an **0.8 s** horizon (16 steps × 0.05 s) in the local path-tangent frame.
+Instead of stepping a kinematic point mass, each rollout forward-simulates a **1.35 kg deadcat quadrotor with 30 ms of motor lag, aerodynamic drag, and PX4's cascaded PID velocity controller** (using a dynamics model similar to the RL approach).
 
-If two sample rollouts (left and right around an obstacle) have the same cost, their lateral controls cancel out, and the averaged command vector points to the center. To prevent this, we inject a +/- 0.95 m/s cross-track velocity offset on **35% of rollouts** so the sample cloud splits into both valleys instead of clustering around zero.
+If two sample rollouts (left and right around an obstacle) have the same cost, their lateral controls cancel out, and the averaged command vector points to the center. To prevent this, we inject a ±0.95 m/s cross-track velocity offset on **35% of rollouts** so the sample cloud splits into both valleys instead of clustering around zero.
 
 > Because MPPI rolls out PX4's actual velocity loop and motor time constants, it predicts pitch and roll transients ahead of time and starts braking _before_ entering a 90° corner.
 
@@ -139,15 +139,15 @@ If two sample rollouts (left and right around an obstacle) have the same cost, t
 
 Rollouts have seven cost terms plus arena altitude and net barriers:
 
-1. **Path follow & velocity alignment**: 3D position and velocity of reference trajectory
-2. **3-source obstacle clearance**: Takes minimum distance across static course walls and iSAM2's output distance grid, with an adaptive comfort radius ('0.42 m' down to '0.23 m' in tight gates).
-3. **Camera orientation (FOV alignment)**: Penalizes yaw deviation from corridor tangent and penalizes horizontal motion that drifts outside the depth camera's FOV, forcing the drone to look where it flies.
+1. **Path follow & velocity alignment**: Tracks the 3D position and velocity of the reference trajectory.
+2. **Multi-source obstacle clearance**: Takes the minimum distance across static course walls and iSAM2's output distance grid, with an adaptive comfort radius (0.42 m down to 0.23 m in tight gates).
+3. **Camera orientation (FOV alignment)**: Penalizes yaw deviation from the corridor tangent and penalizes horizontal motion that drifts outside the depth camera's FOV, forcing the drone to look where it flies.
 4. **Control slew rate & terminal goal**: Penalizes aggressive command chatter and rewards terminal progress along the path.
 
-Before any commands go out to the flight controller, we run a couple final checks:
+Before any commands go out to the flight controller, we run a couple of final checks:
 
 - **Map-frame Exponential CBF**: An Exponential Control Barrier Function transforms the commanded velocity into the arena map frame and clamps outward velocity whenever the drone approaches the outer net.
-- **Blocked path plan retrigger**: If something blocks the corridor centerline with no clearance, or if the minimum rollout cost spikes for 6 MPPI ticks, we command an immediate hold and trigger a global A\* replan.
+- **Blocked-path replan trigger**: If something blocks the corridor centerline with no clearance, or if the minimum rollout cost spikes for 6 MPPI ticks, we command an immediate hold and trigger a global A\* replan.
 
 <div class="classical-demo figure">
   <figure
@@ -173,6 +173,8 @@ Before any commands go out to the flight controller, we run a couple final check
     <span>Open on desktop to explore the interactive 3D Rerun visualizer</span>
   </p>
 </div>
+
+> In this demo, we feed the MPPI planner the reference trajectory directly instead of the transformed trajectory under iSAM2's localization to demonstrate its unmodeled-obstacle avoidance abilities.
 
 ### Results
 
