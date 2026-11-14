@@ -1,4 +1,4 @@
-## RL Approach
+## Reinforcement Learning Approach
 
 For our RL approach, we wanted to learn a policy that could navigate the course fast, with minimal reliance on classical pipelines and minimal compute.
 
