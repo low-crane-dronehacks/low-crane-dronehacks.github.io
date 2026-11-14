@@ -141,7 +141,6 @@ The factor graph is given the arena's CAD model as a prior. The real course (gho
       <span class="viz-item"><i class="viz-swatch viz-box" style="--c: #2d82d7"></i><strong>Priors:</strong> prebaked CAD obstacles retained by iSAM2</span>
       <span class="viz-item"><i class="viz-swatch viz-box" style="--c: #ff8719"></i><strong>New / Updated Obstacles:</strong> shifted &amp; unmodeled walls discovered online</span>
       <span class="viz-item"><i class="viz-swatch viz-box" style="--c: #73ebb9"></i><strong>Cleared Empty Space:</strong> stale CAD priors carved away by depth rays</span>
-      <span class="viz-item"><i class="viz-swatch viz-box" style="--c: #aac3dc"></i><strong>Real Course Ghost:</strong> translucent solid rescan geometry (reference)</span>
     </div>
   </div>
   <p class="desktop-viz-hint" hidden>
@@ -223,7 +222,6 @@ Below is a screen recording of the full classical system running the full compet
   <div class="viz-legend" aria-label="Classical autonomy and iSAM2 visualization legend">
     <div class="viz-legend-row">
       <span class="viz-group-label">Trajectories</span>
-      <span class="viz-item"><i class="viz-swatch viz-line" style="--c: #14af41"></i><strong>Ground Truth</strong> (QuadPlant)</span>
       <span class="viz-item"><i class="viz-swatch viz-line" style="--c: #195feb"></i><strong>iSAM2 Estimate</strong> (drift-corrected)</span>
       <span class="viz-item"><i class="viz-swatch viz-line" style="--c: #00ff87"></i><strong>A* Global Path</strong> (live replanning)</span>
       <span class="viz-item"><i class="viz-swatch viz-line" style="--c: #00bfff"></i><strong>Local Horizon &amp; Vel Cmd</strong></span>
@@ -232,7 +230,7 @@ Below is a screen recording of the full classical system running the full compet
       <span class="viz-group-label">MPPI &amp; Events</span>
       <span class="viz-item"><i class="viz-swatch viz-line" style="--c: #1a8cff"></i><strong>MPPI Optimal Rollout</strong></span>
       <span class="viz-item"><i class="viz-swatch viz-line" style="--c: #38d91a"></i><strong>MPPI Rollout Fan</strong> (green = low cost &rarr; red = high cost)</span>
-      <span class="viz-item"><i class="viz-swatch viz-line" style="--c: #ff8c00"></i><strong>Predicted Heading</strong></span>
+      <span class="viz-item"><i class="viz-swatch viz-line" style="--c: #ff8c00"></i><strong>Predicted Heading Vectors</strong></span>
       <span class="viz-item"><i class="viz-swatch viz-box" style="--c: #ff374b"></i><strong>Blocked-Corridor Replan Trigger</strong></span>
       <span class="viz-item"><i class="viz-swatch viz-ring" style="--c: #ffd700"></i><strong>Drone Collision Ring</strong> (0.21 m)</span>
     </div>
@@ -241,7 +239,6 @@ Below is a screen recording of the full classical system running the full compet
       <span class="viz-item"><i class="viz-swatch viz-box" style="--c: #2d82d7"></i><strong>Blue Priors:</strong> remaining uncarved CAD obstacle voxels</span>
       <span class="viz-item"><i class="viz-swatch viz-box" style="--c: #ff8719"></i><strong>Orange Obstacles:</strong> newly observed / shifted scan walls</span>
       <span class="viz-item"><i class="viz-swatch viz-box" style="--c: #73ebb9"></i><strong>Mint Volume:</strong> stale CAD prior carved as free space</span>
-      <span class="viz-item"><i class="viz-swatch viz-box" style="--c: #aac3dc"></i><strong>Ghosted Meshes &amp; RGB Cloud:</strong> physical <code>.ply</code> arena scan</span>
     </div>
   </div>
   <p class="desktop-viz-hint" hidden>
