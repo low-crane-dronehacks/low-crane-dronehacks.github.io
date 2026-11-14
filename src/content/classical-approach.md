@@ -120,10 +120,10 @@ The factor graph is given the arena's CAD model as a prior. The real course (gho
 <div class="classical-demo figure">
   <figure
     class="rerun-player"
-    data-rrd="/media/rerun/isam2_demo.rrd"
+    data-rrd="/media/rerun/final_isam2.rrd"
     data-timeline="sim_time"
     data-start-nanos="400000000"
-    data-video="/media/clip-3.mp4"
+    data-video="/media/classical/isam2_demo.mp4"
     data-poster="/media/classical-localization.png"
     data-video-label="Classical Approach localization video"
     aria-label="Classical Approach localization Rerun viewer"
@@ -184,11 +184,10 @@ In this demo, we feed the MPPI planner the reference trajectory and privileged o
 <div class="classical-demo figure">
   <figure
     class="rerun-player"
-    data-rrd="/media/rerun/mppi.rrd"
-    data-rbl="/media/rerun/mppi_blueprint.rbl"
+    data-rrd="/media/rerun/final_mppi.rrd"
     data-timeline="time"
     data-start-nanos="5200000000"
-    data-video="/media/clip-4.mp4"
+    data-video="/media/classical/mppi_demo.mp4"
     data-poster="/media/classical-planning.png"
     data-video-label="Classical Approach planning video"
     aria-label="Classical Approach planning Rerun viewer"
@@ -215,9 +214,9 @@ Below is a screen recording of the full classical system running the full compet
 <div class="classical-demo figure">
   <figure
     class="rerun-player"
-    data-rrd="/media/rerun/classical_demo.rrd"
+    data-rrd="/media/rerun/final_full.rrd"
     data-timeline="time"
-    data-video="/media/classical.mp4"
+    data-video="/media/classical/full_demo.mp4"
     data-video-label="Classical Approach full system video"
     aria-label="Classical Approach full system Rerun viewer"
   ></figure>
